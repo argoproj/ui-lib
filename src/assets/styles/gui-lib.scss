@@ -1,0 +1,11 @@
+@import './config';
+@import './elements/form-control';
+@import 'node_modules/font-awesome/scss/font-awesome';
+@import 'node_modules/foundation-sites/scss/foundation';
+
+@include foundation-global-styles;
+@include foundation-flex-classes;
+@include foundation-flex-grid;
+@include foundation-dropdown;
+@include foundation-typography;
+@include foundation-visibility-classes;
