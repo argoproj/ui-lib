@@ -17,6 +17,11 @@ import { SwitchComponent } from './switch/switch.component';
 import { TabComponent } from './tabs/tab.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TooltipContentComponent, TooltipDirective } from './tooltip';
+import {
+    SlidingPanelComponent, SlidingPanelHeaderDirective,
+    SlidingPanelBodyDirective, SlidingPanelFooterDirective
+} from './sliding-panel/sliding-panel.component';
+import { SlidingPanelService } from './sliding-panel/sliding-panel.service';
 
 let components = [
     CheckboxComponent,
@@ -35,12 +40,20 @@ let components = [
     TabsComponent,
     TooltipContentComponent,
     TooltipDirective,
+    SlidingPanelComponent,
+    SlidingPanelHeaderDirective,
+    SlidingPanelBodyDirective,
+    SlidingPanelFooterDirective,
 ];
 
 @NgModule({
     declarations: components,
     entryComponents: [TooltipContentComponent],
     exports: components.concat(NotificationsModule),
+    providers: [{
+        provide: SlidingPanelService,
+        useFactory: () => SlidingPanelService.create(),
+    }],
     imports: [
         CommonModule,
         FormsModule,

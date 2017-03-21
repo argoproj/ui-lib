@@ -44,6 +44,30 @@
             </div>
         </ax-tab>
 
+        <ax-tab tabKey='containers' tabTitle='Containers'>
+            <h3>Sliding panel:</h3>
+            <div class="row ax-form-row">
+                <div class="columns small-2">
+                    <h5>Normal Sliding panel</h5>
+                    <button class="ax-button ax-button--base" (click)="normalSlidingPanelVisible = !normalSlidingPanelVisible"> Toggle panel </button>
+                    <ax-sliding-panel [show]="normalSlidingPanelVisible" [hasCloseButton]="true" (closePanel)="normalSlidingPanelVisible = false">
+                        <sliding-panel-body>
+                            Panel content here
+                        </sliding-panel-body>
+                    </ax-sliding-panel>
+                </div>
+                <div class="columns small-2">
+                    <h5>Off-canvas sliding panel</h5>
+                    <button class="ax-button ax-button--base" (click)="offCanvasSlidingPanelVisible = !offCanvasSlidingPanelVisible"> Toggle panel </button>
+                    <ax-sliding-panel [show]="offCanvasSlidingPanelVisible" [offCanvas]="true" [hasCloseButton]="true" (closePanel)="offCanvasSlidingPanelVisible = false">
+                        <sliding-panel-body>
+                            Panel content here
+                        </sliding-panel-body>
+                    </ax-sliding-panel>                   
+                </div>
+            </div>
+        </ax-tab>
+
         <ax-tab tabKey='tables' tabTitle='Tables'>
             <div class="ax-table-list ax-table-list--clickable">
                 <div class="ax-table-list__head">

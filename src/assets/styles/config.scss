@@ -15,6 +15,8 @@ $top-bar-height: 80px;
 $notifications-left-offset: 100px;
 $notifications-height: 80px;
 $notifications-z-index: 8;
+$sliding-panel-z-index: 20;
+$sliding-panel-offcanvas-width: 500px;
 
 @mixin vertical-align {
     position: relative;
