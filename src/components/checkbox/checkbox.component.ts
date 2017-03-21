@@ -12,25 +12,25 @@ let nextId = 0;
     <label [attr.for]="id">{{label}}</label>`
 })
 export class CheckboxComponent {
-    id: string;
+    public id: string;
 
     @Input()
-    label: string;
+    public label: string;
 
     @Input()
-    checked: boolean;
+    public checked: boolean;
 
     @Input()
-    disabled: boolean;
+    public disabled: boolean;
 
     @Output()
-    onChange: EventEmitter<any> = new EventEmitter();
+    public onChange: EventEmitter<any> = new EventEmitter();
 
     constructor() {
         this.id = `_cbx_${nextId++}`;
     }
 
-    handleOnChange(e: any) {
+    public handleOnChange(e: any) {
         if (!this.disabled) {
             this.onChange.emit(e);
         }

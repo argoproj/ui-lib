@@ -1,0 +1,37 @@
+@import '../../assets/styles/config';
+
+.tabs {
+    &__nav {
+        padding: 20px 20px 0;
+        overflow: hidden;
+        list-style: none;
+        border-bottom: 1px solid #c6cfd1;
+
+        a {
+            display: inline-block;
+            margin: 0 20px;
+            padding: 12px 40px;
+            color: $ax-color-teal-6;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+
+            &.active {
+                color: #000;
+                border-bottom: 4px solid $ax-color-teal-6;
+            }
+
+            i {
+                vertical-align: middle;
+                margin-right: 4px;
+                font-size: 18px;
+                color: #aaa;
+            }
+        }
+    }
+
+    &__content {
+        position: relative;
+        padding: 16px;
+    }
+}

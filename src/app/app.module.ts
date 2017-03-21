@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import { ExampleComponent } from './example.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { GuiComponentsModule } from '../components';
 
 @NgModule({
-    declarations: [ AppComponent ],
-    bootstrap: [AppComponent],
+    declarations: [ ExampleComponent ],
+    bootstrap: [ExampleComponent],
     imports: [
         BrowserModule,
         FormsModule,

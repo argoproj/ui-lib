@@ -8,3 +8,11 @@ import '@angular/router';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+
+import $ = require('jquery');
+
+window['$'] = $;
+window['jQuery'] = $;
+
+import 'foundation-sites';
+import 'jquery.appear/jquery.appear.js';

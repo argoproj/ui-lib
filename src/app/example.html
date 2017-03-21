@@ -1,0 +1,83 @@
+<div style="padding: 20px;">
+
+    <ax-tabs selectedTabKey='controls'>
+        <ax-tab tabKey='controls' tabTitle='Controls'>
+            <h3>Form Controls:</h3>
+            <div class="row ax-form-row">
+                <div class="columns small-2">
+                    <h5>Checkbox</h5>
+                    <ax-checkbox label="Test Checkbox"></ax-checkbox>
+                </div>
+                <div class="columns small-2">
+                    <h5>Radiobox</h5>
+                    <ax-radiobox label="Test Radiobox"></ax-radiobox>
+                </div>
+            </div>
+
+            <h3>Dropdowns:</h3>
+            <div class="row">
+                <div class="columns small-2">
+                    <h5>Basic example:</h5>
+                    <ax-dropdown>
+                        <ax-dropdown-anchor> <button class="ax-button ax-button--base"> Click me </button> </ax-dropdown-anchor>
+                        <ax-dropdown-content> Dropdown content here </ax-dropdown-content>
+                    </ax-dropdown>
+                </div>
+
+                <div class="columns small-2">
+                    <h5>Menu:</h5>
+                    <ax-dropdown [isMenu]="true">
+                        <ax-dropdown-anchor> <button class="ax-button ax-button--base"> Click me </button> </ax-dropdown-anchor>
+                        <ax-dropdown-content>
+                            <ul>
+                                <li>Menu item 1</li>
+                                <li>Menu item 2</li>
+                            </ul>
+                        </ax-dropdown-content>
+                    </ax-dropdown>
+                </div>
+
+                <div class="columns small-2">
+                    <h5>Date Range Dropdown:</h5>
+                    <ax-date-range-dropdown [range]="dateRangeInput"></ax-date-range-dropdown>
+                </div>
+            </div>
+        </ax-tab>
+
+        <ax-tab tabKey='tables' tabTitle='Tables'>
+            <div class="ax-table-list ax-table-list--clickable">
+                <div class="ax-table-list__head">
+                    <div class="row">
+                        <div class="columns small-2"> Header 1 </div>
+                        <div class="columns small-5"> Header 2 </div>
+                        <div class="columns small-5"> Header 3 </div>
+                    </div>
+                </div>
+                <div class="ax-table-list__row" *ngFor="let item of tableItems">
+                    <div class="row">
+                        <div class="columns small-2"> Cell 1 {{item}} </div>
+                        <div class="columns small-5"> Cell 2 {{item}}</div>
+                        <div class="columns small-5"> Cell 3 {{item}}</div>
+                    </div>
+                </div>
+            </div>
+        </ax-tab>
+
+        <ax-tab tabKey='other' tabTitle='other'>
+            <h3>Carousel</h3>
+            <div>
+                <ax-carousel [items]="carouselImages" [options]="{items: 5, loop: false}">
+                    <template let-item>
+                        <div [style.width]="'100px'" [style.height]="'100px'" >
+                            <img [src]="item">
+                        </div>
+                    </template>
+                </ax-carousel>
+            </div>
+            <h3>Markdown</h3>
+            <div>
+                <ax-markdown [markdown]="testMarkdown" ></ax-markdown>
+            </div>
+        </ax-tab>
+    </ax-tabs>
+</div>

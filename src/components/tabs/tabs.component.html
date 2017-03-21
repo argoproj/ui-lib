@@ -1,0 +1,8 @@
+<div class="tabs">
+    <div class="tabs__nav" [class.text-center]="navCenter">
+        <a *ngFor="let tab of tabs" (click)="selectTab(tab)" [ngClass]="{'active': tab.selected}">
+            <i *ngIf="tab.tabIcon" class="fa fa-{{ tab.tabIcon }}"></i> {{ tab.tabTitle }}
+        </a>
+    </div>
+    <ng-content></ng-content>
+</div>

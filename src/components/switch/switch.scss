@@ -1,0 +1,33 @@
+@import '../../assets/styles/config';
+
+.ax-switch {
+    background-color: $ax-color-gray-1;
+    border: 1px solid $ax-color-teal-6;
+    border-radius: 7px;
+
+    &__button {
+        display: inline-block;
+        padding: 0 24px;
+        font-weight: 500;
+        font-size: .8125em;
+        line-height: 1.8125rem;
+        color: $ax-color-teal-6;
+        text-transform: uppercase;
+
+        &.active {
+            color: $ax-color-gray-1;;
+            background-color: $ax-color-teal-6;
+            cursor: default;
+        }
+
+        &:first-child {
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        &:last-child {
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+    }
+}
