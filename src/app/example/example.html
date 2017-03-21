@@ -1,4 +1,4 @@
-<div style="padding: 20px;">
+<div class="example">
 
     <ax-tabs selectedTabKey='controls'>
         <ax-tab tabKey='controls' tabTitle='Controls'>
@@ -60,6 +60,13 @@
                         <div class="columns small-5"> Cell 3 {{item}}</div>
                     </div>
                 </div>
+            </div>
+        </ax-tab>
+
+        <ax-tab tabKey='icons' tabTitle='Icons'>
+            <div class="example__icon" *ngFor="let icon of icons">
+                <i [class]="icon"></i>
+                <p>{{icon}}</p>
             </div>
         </ax-tab>
 

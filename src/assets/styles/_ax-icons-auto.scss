@@ -1,0 +1,316 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "ax-icon-v1";
+    src:url("assets/fonts/ax-icon-v1.eot");
+    src:url("assets/fonts/ax-icon-v1.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/ax-icon-v1.woff") format("woff"),
+    url("assets/fonts/ax-icon-v1.ttf") format("truetype"),
+    url("assets/fonts/ax-icon-v1.svg#ax-icon-v1") format("svg");
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+[data-icon]:before {
+    font-family: "ax-icon-v1" !important;
+    content: attr(data-icon);
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="ax-icon-"]:before,
+[class*=" ax-icon-"]:before {
+    font-family: "ax-icon-v1" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ax-icon-add-attribute:before {
+    content: "\61";
+}
+.ax-icon-catalog:before {
+    content: "\62";
+}
+.ax-icon-timeline:before {
+    content: "\63";
+}
+.ax-icon-notification:before {
+    content: "\64";
+}
+.ax-icon-artifact:before {
+    content: "\65";
+}
+.ax-icon-retry:before {
+    content: "\66";
+}
+.ax-icon-bitbucket:before {
+    content: "\67";
+}
+.ax-icon-calendar-menu:before {
+    content: "\68";
+}
+.ax-icon-calendar:before {
+    content: "\69";
+}
+.ax-icon-cancel:before {
+    content: "\6a";
+}
+.ax-icon-terminate:before {
+    content: "\6b";
+}
+.ax-icon-approval:before {
+    content: "\6c";
+}
+.ax-icon-back:before {
+    content: "\6d";
+}
+.ax-icon-user-profile:before {
+    content: "\6e";
+}
+.ax-icon-integrations:before {
+    content: "\6f";
+}
+.ax-icon-policy:before {
+    content: "\70";
+}
+.ax-icon-yaml:before {
+    content: "\71";
+}
+.ax-icon-branch:before {
+    content: "\72";
+}
+.ax-icon-commit:before {
+    content: "\73";
+}
+.ax-icon-connect:before {
+    content: "\74";
+}
+.ax-icon-dashboards:before {
+    content: "\75";
+}
+.ax-icon-close:before {
+    content: "\76";
+}
+.ax-icon-delete-attribute:before {
+    content: "\77";
+}
+.ax-icon-download:before {
+    content: "\78";
+}
+.ax-icon-checkout:before {
+    content: "\79";
+}
+.ax-icon-edit:before {
+    content: "\7a";
+}
+.ax-icon-edit-property:before {
+    content: "\41";
+}
+.ax-icon-push:before {
+    content: "\42";
+}
+.ax-icon-label:before {
+    content: "\43";
+}
+.ax-icon-import:before {
+    content: "\44";
+}
+.ax-icon-help:before {
+    content: "\45";
+}
+.ax-icon-github:before {
+    content: "\46";
+}
+.ax-icon-git:before {
+    content: "\47";
+}
+.ax-icon-folder-lock:before {
+    content: "\48";
+}
+.ax-icon-workflow:before {
+    content: "\49";
+}
+.ax-icon-filter:before {
+    content: "\4a";
+}
+.ax-icon-external-link:before {
+    content: "\4b";
+}
+.ax-icon-scale:before {
+    content: "\4c";
+}
+.ax-icon-logout:before {
+    content: "\4d";
+}
+.ax-icon-edit-user:before {
+    content: "\4e";
+}
+.ax-icon-lock:before {
+    content: "\4f";
+}
+.ax-icon-deploy:before {
+    content: "\50";
+}
+.ax-icon-manage:before {
+    content: "\51";
+}
+.ax-icon-concurrent-usage:before {
+    content: "\52";
+}
+.ax-icon-hosts:before {
+    content: "\53";
+}
+.ax-icon-build:before {
+    content: "\54";
+}
+.ax-icon-pencil:before {
+    content: "\55";
+}
+.ax-icon-play:before {
+    content: "\56";
+}
+.ax-icon-start:before {
+    content: "\57";
+}
+.ax-icon-sample:before {
+    content: "\58";
+}
+.ax-icon-new:before {
+    content: "\59";
+}
+.ax-icon-tag:before {
+    content: "\5a";
+}
+.ax-icon-metrics:before {
+    content: "\30";
+}
+.ax-icon-pod:before {
+    content: "\31";
+}
+.ax-icon-resubmit-failed:before {
+    content: "\32";
+}
+.ax-icon-stop-property:before {
+    content: "\33";
+}
+.ax-icon-stop:before {
+    content: "\34";
+}
+.ax-icon-fixture:before {
+    content: "\35";
+}
+.ax-icon-fav-selected:before {
+    content: "\36";
+}
+.ax-icon-fav:before {
+    content: "\37";
+}
+.ax-icon-applications:before {
+    content: "\38";
+}
+.ax-icon-configurations:before {
+    content: "\39";
+}
+.ax-icon-job:before {
+    content: "\21";
+}
+.ax-icon-search:before {
+    content: "\22";
+}
+.ax-icon-launcher:before {
+    content: "\23";
+}
+.ax-icon-report-card:before {
+    content: "\24";
+}
+.ax-icon-deployment:before {
+    content: "\25";
+}
+.ax-icon-test:before {
+    content: "\26";
+}
+.ax-icon-delete:before {
+    content: "\27";
+}
+.ax-icon-cashboard:before {
+    content: "\28";
+}
+.ax-icon-user:before {
+    content: "\29";
+}
+.ax-icon-user-groups:before {
+    content: "\2a";
+}
+.ax-icon-admin-access:before {
+    content: "\2b";
+}
+.ax-icon-checked:before {
+    content: "\2c";
+}
+.ax-icon-checkmark:before {
+    content: "\2d";
+}
+.ax-icon-clock:before {
+    content: "\2e";
+}
+.ax-icon-code-file:before {
+    content: "\2f";
+}
+.ax-icon-cancel-2:before {
+    content: "\3a";
+}
+.ax-icon-cancel-2-1:before {
+    content: "\3b";
+}
+.ax-icon-collapse-arrow:before {
+    content: "\3c";
+}
+.ax-icon-expand:before {
+    content: "\3d";
+}
+.ax-icon-expand-arrow:before {
+    content: "\3e";
+}
+.ax-icon-docker:before {
+    content: "\3f";
+}
+.ax-icon-console:before {
+    content: "\40";
+}
+.ax-icon-menu-2:before {
+    content: "\5b";
+}
+.ax-icon-more:before {
+    content: "\5d";
+}
+.ax-icon-right-navigation-toolbar:before {
+    content: "\5e";
+}
+.ax-icon-safe:before {
+    content: "\5f";
+}
+.ax-icon-play-2:before {
+    content: "\60";
+}
+.ax-icon-sales-channels:before {
+    content: "\7b";
+}
+.ax-icon-axlogo:before {
+    content: "\7c";
+}
+.ax-icon-intlogo:before {
+    content: "\7d";
+}

@@ -81,6 +81,9 @@ module.exports = function () {
       new CopyWebpackPlugin([{
           from: 'node_modules/font-awesome/fonts',
           to: 'assets/font-awesome/fonts'
+      }, {
+          from: 'src/assets/fonts',
+          to: 'assets/fonts'
       }]),
       new HtmlWebpackPlugin({
         template: 'src/index.html',

@@ -1,0 +1,15 @@
+[class^='ax-icon-'],
+[class*=' ax-icon-'] {
+    display: inline-block;
+    vertical-align: middle;
+    font: normal normal normal 18px/1 'ax-icon-v1';
+    font-size: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="ax-icon-"]:before,
+[class*=" ax-icon-"]:before {
+    line-height: inherit !important;
+    font-size: inherit !important;
+}

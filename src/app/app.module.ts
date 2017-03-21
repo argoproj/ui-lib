@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { ExampleComponent } from './example.component';
+import { HttpModule } from '@angular/http';
+import { ExampleComponent } from './example/example.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { GuiComponentsModule } from '../components';
@@ -11,6 +12,7 @@ import { GuiComponentsModule } from '../components';
         BrowserModule,
         FormsModule,
         GuiComponentsModule,
+        HttpModule,
     ]
 })
 export class AppModule {

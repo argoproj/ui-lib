@@ -1,15 +1,17 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { DateRange  } from '../components';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { DateRange  } from '../../components';
 
 @Component({
     selector: 'ax-example',
     templateUrl: './example.html',
     encapsulation: ViewEncapsulation.None,
     styles: [
-        require('../assets/styles/gui-lib.scss').toString(),
+        require('../../assets/styles/gui-lib.scss').toString(),
+        require('./example.scss').toString(),
     ],
 })
-export class ExampleComponent {
+export class ExampleComponent  implements OnInit {
 
     dateRangeInput = DateRange.today();
     carouselImages =  [
@@ -43,14 +45,22 @@ export class ExampleComponent {
         'https://datadog-live.imgix.net/img/Integrations-Elasticsearch-340x216.png',
         'https://datadog-live.imgix.net/img/Integrations-etcD-340x216.png',
     ];
-    testMarkdown = `
-    ###Applatix is awesome!
-    `;
+    icons = [];
+    testMarkdown = '###Applatix is awesome!';
     tableItems = [];
 
-    constructor() {
+    constructor(private http: Http) {}
+
+    public async ngOnInit() {
         for (let i = 0; i < 100; i++ ) {
             this.tableItems.push(this.tableItems.length);
+        }
+        let iconsCss = await this.http.get('/assets/styles/_ax-icons-auto.scss').toPromise().then(res => res.text());
+        for (let line of iconsCss.split('\n')) {
+            let match = line.match('[.](ax-icon-.*):before');
+            if (match && match.length > 1) {
+                this.icons.push(match[1]);
+            }
         }
     }
 }
