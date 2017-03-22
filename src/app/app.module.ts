@@ -3,6 +3,8 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 import { GuiComponentsModule } from '../components';
 
 import { AppComponent } from './app.component';
@@ -23,6 +25,10 @@ import { ExampleOtherComponent } from './example-other/example-other.component';
         ExampleIconsComponent,
         ExampleOtherComponent,
     ],
+    providers: [{
+        provide: LocationStrategy,
+        useClass: HashLocationStrategy,
+    }],
     bootstrap: [ AppComponent ],
     imports: [
         BrowserModule,

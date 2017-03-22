@@ -84,6 +84,9 @@ module.exports = function () {
       }, {
           from: 'src/assets/fonts',
           to: 'assets/fonts'
+      }, {
+          from: 'src/assets/styles/_ax-icons-auto.scss',
+          to: 'assets/styles/_ax-icons-auto.scss'
       }]),
       new HtmlWebpackPlugin({
         template: 'src/index.html',
