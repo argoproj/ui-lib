@@ -16,7 +16,7 @@
 
             <h3>Dropdowns:</h3>
             <div class="row">
-                <div class="columns small-2">
+                <div class="columns small-3">
                     <h5>Basic example:</h5>
                     <ax-dropdown>
                         <ax-dropdown-anchor> <button class="ax-button ax-button--base"> Click me </button> </ax-dropdown-anchor>
@@ -24,7 +24,7 @@
                     </ax-dropdown>
                 </div>
 
-                <div class="columns small-2">
+                <div class="columns small-3">
                     <h5>Menu:</h5>
                     <ax-dropdown [isMenu]="true">
                         <ax-dropdown-anchor> <button class="ax-button ax-button--base"> Click me </button> </ax-dropdown-anchor>
@@ -37,9 +37,17 @@
                     </ax-dropdown>
                 </div>
 
-                <div class="columns small-2">
+                <div class="columns small-3">
                     <h5>Date Range Dropdown:</h5>
                     <ax-date-range-dropdown [range]="dateRangeInput"></ax-date-range-dropdown>
+                </div>
+            </div>
+
+            <h3>Other:</h3>
+            <div class="row">
+                <div class="columns small-3">
+                    <h5>Tooltip:</h5>
+                    <button ax-tooltip="Tooltip text" class="ax-button ax-button--base">Hover</button>
                 </div>
             </div>
         </ax-tab>
@@ -47,7 +55,7 @@
         <ax-tab tabKey='containers' tabTitle='Containers'>
             <h3>Sliding panel:</h3>
             <div class="row ax-form-row">
-                <div class="columns small-2">
+                <div class="columns small-3">
                     <h5>Normal Sliding panel</h5>
                     <button class="ax-button ax-button--base" (click)="normalSlidingPanelVisible = !normalSlidingPanelVisible"> Toggle panel </button>
                     <ax-sliding-panel [show]="normalSlidingPanelVisible" [hasCloseButton]="true" (closePanel)="normalSlidingPanelVisible = false">
@@ -56,7 +64,7 @@
                         </sliding-panel-body>
                     </ax-sliding-panel>
                 </div>
-                <div class="columns small-2">
+                <div class="columns small-3">
                     <h5>Off-canvas sliding panel</h5>
                     <button class="ax-button ax-button--base" (click)="offCanvasSlidingPanelVisible = !offCanvasSlidingPanelVisible"> Toggle panel </button>
                     <ax-sliding-panel [show]="offCanvasSlidingPanelVisible" [offCanvas]="true" [hasCloseButton]="true" (closePanel)="offCanvasSlidingPanelVisible = false">
@@ -64,6 +72,16 @@
                             Panel content here
                         </sliding-panel-body>
                     </ax-sliding-panel>                   
+                </div>
+            </div>
+            <h3>Whitebox</h3>
+            <div class="white-box white-box--with-ico">
+                <div class="white-box__ico">
+                    <i class="fa fa-cog"></i>
+                </div>
+                <h4>Nicely looking panel with optional icon.</h4>
+                <div *ngFor="let i of [1, 2, 3, 4]">
+                    <ax-checkbox label="Setting {{i}}"></ax-checkbox>
                 </div>
             </div>
         </ax-tab>
