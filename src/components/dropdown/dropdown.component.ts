@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, Input, OnDestroy, OnInit, Directive } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, Input, OnDestroy, OnInit, Directive, ViewEncapsulation } from '@angular/core';
 
 declare var Foundation: any;
 let nextId = 0;
@@ -13,6 +13,7 @@ let nextId = 0;
             <ng-content select="ax-dropdown-content"></ng-content>
         </div>
     `,
+    encapsulation: ViewEncapsulation.None,
     styles: [ require('./_dropdown.scss').toString() ]
 })
 export class DropDownComponent implements AfterViewInit, OnDestroy, OnInit {
