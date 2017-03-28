@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     templateUrl: './example-other.html',
 })
 export class ExampleOtherComponent {
-    carouselImages =  [
+    public carouselImages =  [
         'https://datadog-live.imgix.net/img/Integrations-ActiveMQ-340x216.png',
         'https://datadog-live.imgix.net/img/Integrations-Airbrake-340x216.png',
         'https://datadog-live.imgix.net/img/Integrations-AWS-340x216.png',
@@ -37,7 +37,7 @@ export class ExampleOtherComponent {
         'https://datadog-live.imgix.net/img/Integrations-etcD-340x216.png',
     ];
 
-    testMarkdown = `
+    public testMarkdown = `
     # README #
 
 This is the Applatix App Store repo. It contains

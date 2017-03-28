@@ -7,5 +7,5 @@ import { DateRange  } from '../../components';
     templateUrl: './example-controls.html',
 })
 export class ExampleControlsComponent {
-    dateRangeInput = DateRange.today();
+    public dateRangeInput = DateRange.today();
 }

@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ExampleComponent {
 
-    selectedTab: string;
+    public selectedTab: string;
 
     constructor(activatedRoute: ActivatedRoute, private router: Router) {
         activatedRoute.params.subscribe(params => {
@@ -21,6 +21,6 @@ export class ExampleComponent {
     }
 
     public selectTab(tab: string) {
-        this.router.navigate(['/example', {tab}])
+        this.router.navigate(['/example', { tab }]);
     }
 }

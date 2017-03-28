@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 export class ExampleIconsComponent implements OnInit {
     public icons = [];
 
-    constructor(private http: Http) {    
+    constructor(private http: Http) {
     }
 
     public async ngOnInit() {

@@ -1,0 +1,75 @@
+---
+type: service_template
+subtype: workflow
+name: gui-lib-build
+description: This is the workflow for building Ax Portal API.
+inputs:
+  parameters:
+    commit:
+      default: "%%session.commit%%"
+    repo:
+      default: "%%session.repo%%"
+steps:
+- checkout:
+    template: axscm-checkout
+- build:
+    template: node
+    parameters:
+      cmd: "sh -c 'cd /src && npm install --no-optional && npm run tslint && npm run build:prod'"
+      code: "%%steps.checkout.code%%"
+    outputs:
+    artifacts:
+      code:
+        path: "/src"
+---
+type: policy
+name: gui-lib-build-policy
+description: Policy for Ax Portal Build and Test
+template: gui-lib-build
+parameters:
+  repo: ""
+  commit: ""
+  branch: ""
+  testOnly: "true"
+notifications:
+  -
+    when:
+      - on_change
+    whom:
+      - committer
+      - submitter
+      - author
+when:
+  -
+    event: on_pull_request
+    target_branches:
+      - master
+  -
+    event: on_push
+    target_branches:
+      - master
+
+---
+type: policy
+name: gui-lib-build-publish-policy
+description: Policy for Ax Portal Build and Test
+template: gui-lib-build
+parameters:
+  repo: ""
+  commit: ""
+  branch: ""
+  testOnly: "false"
+notifications:
+  -
+    when:
+      - on_change
+    whom:
+      - committer
+      - submitter
+      - author
+when:
+  -
+    event: on_push
+    target_branches:
+      - master
+      - production

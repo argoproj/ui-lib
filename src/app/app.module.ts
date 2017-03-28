@@ -39,8 +39,8 @@ import { ExampleOtherComponent } from './example-other/example-other.component';
             { path: 'example', component: ExampleComponent },
             { path: '**', redirectTo: 'example' },
         ]),
-    ]
+    ],
 })
 export class AppModule {
-    
+
 }
