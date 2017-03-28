@@ -21,10 +21,52 @@ steps:
     artifacts:
       code:
         path: "/src"
+- deploy:
+    template: gui-lib-deployment
+    parameters:
+      code: "%%steps.build.code%%"
+
+---
+type: service_template
+subtype: deployment
+name: gui-lib-deployment
+inputs:
+  parameters:
+    code:
+      default: "%%session.artifacts%%"
+    appname:
+      default: "gui-lib"
+    deployname:
+      default: "gui-lib-deploy"
+    domain:
+      default: "gui-team.applatix.net"
+application:
+  name: "%%appname%%"
+deployment:
+  name: "%%deployname%%"
+scale:
+  min: 2
+external_routes:
+  - name: "gui-lib-ui"
+    dns_prefix:
+    dns_domain: "%%domain%%"
+    target_port: 8081
+    redirect_http_to_https: false
+    ip_white_list:
+      - 0.0.0.0/0
+containers:
+  - server:
+      template: node
+      parameters:
+        cmd: sh -c 'cd /src && npm run server:prod'
+termination_policy:
+  time_seconds: "43200"
+  spending_cents: "100"
+
 ---
 type: policy
 name: gui-lib-build-policy
-description: Policy for Ax Portal Build and Test
+description: Policy for GUI library build
 template: gui-lib-build
 parameters:
   repo: ""
@@ -48,28 +90,3 @@ when:
     event: on_push
     target_branches:
       - master
-
----
-type: policy
-name: gui-lib-build-publish-policy
-description: Policy for Ax Portal Build and Test
-template: gui-lib-build
-parameters:
-  repo: ""
-  commit: ""
-  branch: ""
-  testOnly: "false"
-notifications:
-  -
-    when:
-      - on_change
-    whom:
-      - committer
-      - submitter
-      - author
-when:
-  -
-    event: on_push
-    target_branches:
-      - master
-      - production
