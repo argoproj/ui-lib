@@ -50,9 +50,9 @@ scale:
   min: 1
 external_routes:
   - name: "gui-lib-ui"
-    dns_prefix:
+    dns_prefix: "examples"
     dns_domain: "%%domain%%"
-    target_port: 8081
+    target_port: 8080
     redirect_http_to_https: false
     ip_white_list:
       - 0.0.0.0/0
