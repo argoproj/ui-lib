@@ -9,6 +9,12 @@ inputs:
       default: "%%session.commit%%"
     repo:
       default: "%%session.repo%%"
+    appname:
+      default: "gui-lib"
+    deployname:
+      default: "gui-lib-deploy"
+    domain:
+      default: "gui-lib.applatix.net"
 steps:
 - checkout:
     template: axscm-checkout
@@ -27,25 +33,21 @@ steps:
       code: "%%steps.build.code%%"
 
 ---
-type: service_template
-subtype: deployment
+type: deployment
 name: gui-lib-deployment
 inputs:
   parameters:
     code:
       default: "%%session.artifacts%%"
     appname:
-      default: "gui-lib"
     deployname:
-      default: "gui-lib-deploy"
     domain:
-      default: "gui-team.applatix.net"
 application:
   name: "%%appname%%"
 deployment:
   name: "%%deployname%%"
 scale:
-  min: 2
+  min: 1
 external_routes:
   - name: "gui-lib-ui"
     dns_prefix:
