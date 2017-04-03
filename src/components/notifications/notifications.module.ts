@@ -14,9 +14,10 @@ import { NotificationsService } from './notifications.service';
     exports: [
         NotificationsComponent,
     ],
-    providers: [
-        NotificationsService,
-    ],
+    providers: [{
+        provide: NotificationsService,
+        useFactory: () => NotificationsService.create(),
+    }],
 })
 export class NotificationsModule {
 }

@@ -3,7 +3,6 @@
 .ax-notifications-list {
     position: fixed;
     top: 0;
-    left: $notifications-left-offset;
     right: 0;
     z-index: $notifications-z-index;
     box-shadow: 2px 0 6px rgba(#000, .3);

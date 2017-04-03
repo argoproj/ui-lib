@@ -7,7 +7,7 @@
     </ax-dropdown-anchor>
     <ax-dropdown-content>
         <ul *ngIf="settings && settings.menu.length > 0">
-            <li *ngFor="let item of settings.menu; trackBy:byTitle" (click)="item.action()">
+            <li *ngFor="let item of settings.menu; trackBy:byTitle" (click)="item.action(); close();">
                 <i *ngIf="item.iconName" class="fa {{item.iconName}}" aria-hidden="true"></i> {{item.title}}
             </li>
         </ul>

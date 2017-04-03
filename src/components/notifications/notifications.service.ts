@@ -2,10 +2,21 @@ import { Injectable } from '@angular/core';
 
 import { NotificationTypes, Notification } from './notification.model';
 
+const INTERNAL_ERROR = 'Internal error encountered.';
+
 @Injectable()
 export class NotificationsService {
+    public static create(): NotificationsService {
+        if (!NotificationsService.instance) {
+            NotificationsService.instance = new NotificationsService();
+        }
+        return NotificationsService.instance;
+    }
+
+    private static instance: NotificationsService;
+
+
     public notifications: Notification[] = [];
-    private Internal_Error = 'Internal error encountered.';
     public success(content: string) {
         this.createNotification(NotificationTypes.Success, content);
     }
@@ -19,7 +30,7 @@ export class NotificationsService {
     }
 
     public internalError() {
-        this.createNotification(NotificationTypes.Error, this.Internal_Error);
+        this.createNotification(NotificationTypes.Error, INTERNAL_ERROR);
     }
 
     public close(index: number) {

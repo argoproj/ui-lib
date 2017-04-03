@@ -45,4 +45,10 @@
         <h5>Tooltip:</h5>
         <button ax-tooltip="Tooltip text" class="ax-button ax-button--base">Hover</button>
     </div>
+    <div class="columns small-3">
+        <h5>Notifications:</h5>
+        <button class="ax-button ax-button--base" (click)="notificationsService.success('Test')">Success Message</button>
+        <button class="ax-button ax-button--base" (click)="notificationsService.warning('Warning')">Warning Message</button>
+        <button class="ax-button ax-button--base" (click)="notificationsService.error('Error')">Error Message</button>
+    </div>
 </div>

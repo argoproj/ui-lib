@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
     templateUrl: './example.html',
     encapsulation: ViewEncapsulation.None,
     styles: [
-        require('../../assets/styles/gui-lib.scss').toString(),
         require('./example.scss').toString(),
     ],
 })
