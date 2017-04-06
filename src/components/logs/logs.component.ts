@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, ViewChild, NgZone, EventEmitter, Output, ElementRef, AfterViewInit, HostListener } from '@angular/core';
+import { Component, Input, OnDestroy, ViewChild, NgZone, EventEmitter, Output, ElementRef, AfterViewInit, HostListener, ViewEncapsulation } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { NotificationsService } from '../notifications';
 
@@ -16,6 +16,7 @@ export interface LogsSource {
     styles: [
         require('./logs.scss').toString(),
     ],
+    encapsulation: ViewEncapsulation.None,
 })
 export class LogsComponent implements OnDestroy, AfterViewInit {
     @Input()
