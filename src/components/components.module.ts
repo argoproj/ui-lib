@@ -17,9 +17,10 @@ import { SwitchComponent } from './switch/switch.component';
 import { TabComponent } from './tabs/tab.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TooltipContentComponent, TooltipDirective } from './tooltip';
+import { LogsComponent } from './logs/logs.component';
 import {
     SlidingPanelComponent, SlidingPanelHeaderDirective,
-    SlidingPanelBodyDirective, SlidingPanelFooterDirective
+    SlidingPanelBodyDirective, SlidingPanelFooterDirective,
 } from './sliding-panel/sliding-panel.component';
 import { SlidingPanelService } from './sliding-panel/sliding-panel.service';
 
@@ -44,6 +45,7 @@ let components = [
     SlidingPanelHeaderDirective,
     SlidingPanelBodyDirective,
     SlidingPanelFooterDirective,
+    LogsComponent,
 ];
 
 @NgModule({

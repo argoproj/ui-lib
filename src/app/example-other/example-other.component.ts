@@ -1,10 +1,32 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'ax-example-other',
     templateUrl: './example-other.html',
 })
 export class ExampleOtherComponent {
+
+    public logsSource = {
+        loadLogs(): Observable<string> {
+            return Observable.create(observer => {
+                let colors = ['\u001b[0;92m', '\u001b[0;34m', '\u001b[0;31m', '\u001b[0;33m'];
+                let i = 0;
+
+                function addLogs() {
+                    if (i++ < 1000) {
+                        observer.next(`${colors[i % colors.length]}${i} - Test log\n`);
+                        setTimeout(addLogs, 100);
+                    }
+                }
+                addLogs();
+            });
+        },
+        getKey(): string {
+            return 'test';
+        },
+    };
+
     public carouselImages =  [
         'https://datadog-live.imgix.net/img/Integrations-ActiveMQ-340x216.png',
         'https://datadog-live.imgix.net/img/Integrations-Airbrake-340x216.png',
