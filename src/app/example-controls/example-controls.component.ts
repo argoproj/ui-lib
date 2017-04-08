@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { DateRange, NotificationsService  } from '../../components';
+import { DateRange, NotificationsService, DropdownMenuSettings } from '../../components';
 
 @Component({
     selector: 'ax-example-controls',
@@ -9,6 +9,11 @@ import { DateRange, NotificationsService  } from '../../components';
 export class ExampleControlsComponent {
 
     public dateRangeInput = DateRange.today();
+    public menuSettings = new DropdownMenuSettings([{
+        title: 'test',
+        iconName: 'fa-times-circle-o',
+        action: () => alert('Hello')
+    }]);
 
     constructor(public notificationsService: NotificationsService) {
     }

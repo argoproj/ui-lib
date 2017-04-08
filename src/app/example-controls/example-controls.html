@@ -22,15 +22,9 @@
 
     <div class="columns small-3">
         <h5>Menu:</h5>
-        <ax-dropdown [isMenu]="true">
-            <ax-dropdown-anchor> <button class="ax-button ax-button--base"> Click me </button> </ax-dropdown-anchor>
-            <ax-dropdown-content>
-                <ul>
-                    <li>Menu item 1</li>
-                    <li>Menu item 2</li>
-                </ul>
-            </ax-dropdown-content>
-        </ax-dropdown>
+        <ax-dropdown-menu [settings]="menuSettings">
+            <button class="ax-button ax-button--base"> Click me </button>
+        </ax-dropdown-menu>
     </div>
 
     <div class="columns small-3">

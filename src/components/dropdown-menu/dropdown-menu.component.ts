@@ -39,4 +39,8 @@ export class DropDownMenuComponent {
     close() {
         this.dateRangeDropdown.close();
     }
+
+    open() {
+        this.dateRangeDropdown.open();
+    }    
 }
