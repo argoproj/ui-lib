@@ -12,7 +12,7 @@ export class ExampleControlsComponent {
     public menuSettings = new DropdownMenuSettings([{
         title: 'test',
         iconName: 'fa-times-circle-o',
-        action: () => alert('Hello')
+        action: () => alert('Hello'),
     }]);
 
     constructor(public notificationsService: NotificationsService) {
