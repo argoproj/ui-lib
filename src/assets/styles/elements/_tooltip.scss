@@ -40,6 +40,7 @@ $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
     padding: 3px 8px;
     color: $tooltip-color;
     text-align: center;
+    line-height: initial;
 
     background-color: $tooltip-bg;
     border-radius: $border-radius-base;
