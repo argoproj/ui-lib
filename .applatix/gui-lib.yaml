@@ -61,9 +61,6 @@ containers:
       template: node
       parameters:
         cmd: sh -c 'cd /src && npm run server:prod'
-termination_policy:
-  time_seconds: "43200"
-  spending_cents: "100"
 
 ---
 type: policy
