@@ -33,6 +33,20 @@
     </div>
 </div>
 
+<h3>Switch</h3>
+<div class="row">
+    <div class="columns small-3">
+        <h5>Base:</h5>
+        <ax-switch [options]="[{value: 'a', title: 'First'}, {value: 'b', title: 'Second'}, {value: 'c', title: 'Third'}]"
+                   [selectedValue]="'b'"></ax-switch>
+    </div>
+    <div class="columns small-3">
+        <h5>Flexible:</h5>
+        <ax-switch [options]="[{value: 'a', title: 'First'}, {value: 'b', title: 'Second'}, {value: 'c', title: 'Third'}]"
+                   [selectedValue]="'b'" [isFlexible]="true"></ax-switch>
+    </div>
+</div>
+
 <h3>Other:</h3>
 <div class="row">
     <div class="columns small-3">
