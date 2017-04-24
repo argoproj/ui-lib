@@ -13,6 +13,8 @@ export class SwitchComponent {
     public onOptionChanged: EventEmitter<string> = new EventEmitter<string>();
     @Input()
     public selectedValue: string = 'commit';
+    @Input()
+    public isFlexible: boolean;
 
     protected selectOption(value: string) {
         let changed = value !== this.selectedValue;
