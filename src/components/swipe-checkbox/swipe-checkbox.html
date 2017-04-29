@@ -1,0 +1,5 @@
+<div (click)="swipe()" class="swipe" [ngClass]="{ 'checked': value }" [attr.title]="label">
+    <input type="checkbox" class="swipe-input" [value]="value" [attr.checked]="value" [attr.aria-label]="label">
+    <span class="swipe-label" data-on="ENABLE RULE" data-off="DISABLE RULE"></span>
+    <span class="swipe-handle"></span>
+</div>

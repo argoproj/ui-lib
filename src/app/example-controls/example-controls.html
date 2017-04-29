@@ -60,3 +60,11 @@
         <button class="ax-button ax-button--base" (click)="notificationsService.error('Error')">Error Message</button>
     </div>
 </div>
+
+<h3>Swipe checkbox</h3>
+<div class="row">
+    <div class="columns small-3">
+        <ax-swipe-checkbox [(ngModel)]="value" [label]="'My Switch'"></ax-swipe-checkbox><br />
+        <span>{{value}}</span>
+    </div>
+</div>
