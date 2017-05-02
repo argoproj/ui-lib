@@ -22,6 +22,14 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 
+    &__content {
+        position: absolute;
+        left: 65px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
     &.success {
         background-color: $ax-success-color;
     }

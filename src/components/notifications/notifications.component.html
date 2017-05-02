@@ -7,7 +7,8 @@
             <i class="fa fa-check-circle" aria-hidden="true" *ngIf="notification.type === notificationTypes.Success"></i>
             <i class="fa fa-exclamation-triangle" *ngIf="notification.type === notificationTypes.Warning"></i>
             <i class="fa fa-times-circle-o" aria-hidden="true" *ngIf="notification.type === notificationTypes.Error"></i>
-            {{ notification.content }}
+            <div class="ax-notification__content" [innerHTML]="notification.content">
+            </div>
             <div class="ax-notification__close" (click)="close(i)">x</div>
         </div>
     </template>
