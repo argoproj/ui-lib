@@ -25,7 +25,7 @@ export class DateRangeSelectorComponent {
     public monthTitle: string;
 
     @Input()
-    public maxNumberOfDays: number = 15;
+    public maxNumberOfDays: number = 30;
     @Input()
     public allowAll: boolean = false;
 
@@ -39,7 +39,8 @@ export class DateRangeSelectorComponent {
             {title: 'yesterday',  numberOfDays: 1, endDate: moment().add(-1, 'day').endOf('day')},
             {title: 'last 7 days', numberOfDays: 7, endDate: moment().endOf('day')},
             {title: 'last 15 days', numberOfDays: 15, endDate: moment().endOf('day')},
-            {title: 'all', numberOfDays: -1, endDate: moment().endOf('day'), all: true}
+            {title: 'last 30 days', numberOfDays: 30, endDate: moment().endOf('day')},
+            {title: 'all', numberOfDays: -1, endDate: moment().endOf('day'), all: true},
     ];
     private rangesWithoutAll = this.allRanges.slice(0, this.allRanges.length - 1);
 
