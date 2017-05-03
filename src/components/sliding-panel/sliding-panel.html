@@ -8,9 +8,8 @@
      [class.sliding-panel--off-canvas]="offCanvas">
     <div #panelWrapper class="sliding-panel__wrapper">
         <button *ngIf="hasCloseButton" class="sliding-panel__close" aria-hidden="true" (click)="close()">
-            <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-2x fa-stack-2x fa-inverse"></i>
-            <i class="fa fa-times-circle fa-2x fa-stack-2x"></i>
+            <span>
+                <i class="ax-icon-close" aria-hidden="true"></i>
             </span>
         </button>
         <div class="sliding-panel__header" #panelHeader [hidden]="!hasHeader">

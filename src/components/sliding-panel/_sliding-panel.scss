@@ -39,22 +39,11 @@ $sliding-panel-middle-width: 600px;
         position: absolute;
         cursor: pointer;
         top: 20px;
-        left: -60px;
+        left: -50px;
 
-        .sliding-panel--off-canvas & {
-            left: 20px;
-        }
-
-        .fa-circle {
-            color: $ax-color-gray-1;
-        }
-
-        .fa-times-circle {
-            color: black;
-
-            .sliding-panel--off-canvas & {
-                color: $ax-color-gray-4;
-            }
+        & > span {
+            font-size: 30px;
+            color: white;
         }
     }
 

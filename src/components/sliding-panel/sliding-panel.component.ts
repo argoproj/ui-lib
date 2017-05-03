@@ -1,5 +1,5 @@
 import {
-    Component, EventEmitter, Input, Output, Directive, ViewChild, AfterContentInit, OnDestroy
+    Component, EventEmitter, Input, Output, Directive, ViewChild, AfterContentInit, OnDestroy,
 } from '@angular/core';
 import { SlidingPanelService } from './sliding-panel.service';
 
@@ -23,22 +23,22 @@ export class SlidingPanelComponent implements AfterContentInit, OnDestroy {
     };
 
     @Input()
-    hasCloseButton: boolean = true;
+    public hasCloseButton: boolean = true;
 
     @Input()
-    hasNoPadding: boolean = false;
+    public hasNoPadding: boolean = false;
 
     @Input()
-    isNarrow: boolean = false;
+    public isNarrow: boolean = false;
 
     @Input()
-    offCanvas: boolean = false;
+    public offCanvas: boolean = false;
 
     @Input()
-    isMiddle: boolean = false;
+    public isMiddle: boolean = false;
 
     @Output()
-    closePanel: EventEmitter<SlidingPanelComponent> = new EventEmitter<SlidingPanelComponent>();
+    public closePanel: EventEmitter<SlidingPanelComponent> = new EventEmitter<SlidingPanelComponent>();
 
     @ViewChild('panelHeader')
     private panelHeader;
