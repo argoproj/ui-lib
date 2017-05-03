@@ -1,3 +1,5 @@
+import { SafeHtml } from '@angular/platform-browser';
+
 export enum NotificationTypes {
     Success,
     Warning,
@@ -5,6 +7,6 @@ export enum NotificationTypes {
 }
 
 export class Notification {
-    public content: string;
+    public content: SafeHtml;
     public type: NotificationTypes;
 }
