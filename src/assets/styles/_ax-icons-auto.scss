@@ -38,6 +38,18 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+[class^="ax-icon-"]:before,
+[class*=" ax-icon-"]:before {
+  font-family: "ax-icon-v1" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 .ax-icon-add-attribute:before {
   content: "\61";
@@ -312,9 +324,6 @@
 .ax-icon-info:before {
   content: "\7e";
 }
-.ax-icon-delete-1:before {
-  content: "\76";
-}
 .ax-icon-addstorage:before {
   content: "\5c";
 }
@@ -332,4 +341,7 @@
 }
 .ax-icon-jira:before {
   content: "\e003";
+}
+.ax-icon-close:before {
+  content: "\76";
 }
