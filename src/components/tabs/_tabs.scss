@@ -2,6 +2,7 @@
 
 .tabs {
     &__nav {
+        position: relative;
         padding: 20px 20px 0;
         overflow: hidden;
         list-style: none;
@@ -15,10 +16,10 @@
             font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
+            transition: color .2s;
 
             &.active {
                 color: #000;
-                border-bottom: 4px solid $ax-color-teal-6;
             }
 
             i {
@@ -27,6 +28,21 @@
                 font-size: 18px;
                 color: #aaa;
             }
+        }
+    }
+
+    &__indicator {
+        position: absolute;
+        bottom: 0;
+        height: 4px;
+        background: $ax-color-teal-6;
+
+        &.to-left {
+            transition: left .4s, right .4s .07s;
+        }
+
+        &.to-right {
+            transition: left .4s .07s, right .4s;
         }
     }
 
