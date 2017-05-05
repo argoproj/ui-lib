@@ -1,16 +1,28 @@
-import {Component, EventEmitter, Output, Input} from '@angular/core';
-import {Tab} from './tab.interface';
+import { Component, EventEmitter, Output, Input, ElementRef, AfterViewInit } from '@angular/core';
+import { Tab } from './tab.interface';
 
 @Component({
     selector: 'ax-tabs',
     templateUrl: './tabs.component.html',
     styles: [ require('./_tabs.scss').toString() ]
 })
-export class TabsComponent {
+export class TabsComponent implements AfterViewInit {
     public tabs: Tab[] = [];
+    public indicatorPosition: { left: number; right: number; directionToLeft: boolean };
+
     @Output() public selected = new EventEmitter();
     @Input() public selectedTabKey: string;
     @Input() public navCenter: boolean = false;
+
+    constructor(private myElement: ElementRef) {
+    }
+
+    public ngAfterViewInit() {
+        let el = this.myElement.nativeElement.querySelector('.active');
+        let parentEl = this.myElement.nativeElement.querySelector('.tabs__nav');
+
+        this.indicatorPosition = this.getIndicatorPosition(parentEl, el);
+    }
 
     public addTab(tab: Tab) {
         this.tabs.push(tab);
@@ -23,12 +35,21 @@ export class TabsComponent {
         }
     }
 
-    public selectTab(tab: Tab) {
+    public selectTab(event, tab: Tab) {
+        this.indicatorPosition = this.getIndicatorPosition(event.toElement.offsetParent, event.toElement);
         this.selectedTabKey = tab.tabKey;
         this.selected.emit({selectedTab: tab});
     }
 
     public isTabSelected(tab: Tab) {
         return tab.tabKey === this.selectedTabKey;
+    }
+
+    private getIndicatorPosition(parentEl, el) {
+        return {
+            left: el.offsetLeft,
+            right: parentEl.offsetWidth - el.offsetWidth - el.offsetLeft,
+            directionToLeft: this.indicatorPosition && this.indicatorPosition && this.indicatorPosition.left > el.offsetLeft
+        }
     }
 }
