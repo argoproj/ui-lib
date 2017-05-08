@@ -18,6 +18,15 @@
             </sliding-panel-body>
         </ax-sliding-panel>                   
     </div>
+    <div class="columns small-3">
+        <h5>Middle sliding panel</h5>
+        <button class="ax-button ax-button--base" (click)="middleSlidingPanelVisible = !middleSlidingPanelVisible"> Toggle panel </button>
+        <ax-sliding-panel [show]="middleSlidingPanelVisible" [hasNoPadding]="true" [hasCloseButton]="true" [isMiddle]="true" (closePanel)="middleSlidingPanelVisible = false">
+            <sliding-panel-body>
+                Panel content here
+            </sliding-panel-body>
+        </ax-sliding-panel>
+    </div>
 </div>
 <h3>Whitebox</h3>
 <div class="white-box white-box--with-ico">
