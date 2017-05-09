@@ -14,7 +14,6 @@ import { ExampleContainersComponent } from './example-containers/example-contain
 import { ExampleTablesComponent } from './example-tables/example-tables.component';
 import { ExampleIconsComponent } from './example-icons/example-icons.component';
 import { ExampleOtherComponent } from './example-other/example-other.component';
-import { ButtonWaveDirective } from '../components/directives/button-wave/button-wave.directive';
 
 @NgModule({
     declarations: [
@@ -25,7 +24,6 @@ import { ButtonWaveDirective } from '../components/directives/button-wave/button
         ExampleTablesComponent,
         ExampleIconsComponent,
         ExampleOtherComponent,
-        ButtonWaveDirective,
     ],
     providers: [{
         provide: LocationStrategy,
