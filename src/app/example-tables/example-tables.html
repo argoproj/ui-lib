@@ -1,4 +1,6 @@
-<div class="ax-table-list ax-table-list--clickable">
+<div class="ax-table-list ax-table-list--clickable"
+    ax-infinite-scroll [ax-infinite-scroll-distance]="1" [ax-scroll-window]="true" [ax-immediate-check]="true" (scrolled)="addTableItems()">
+
     <div class="ax-table-list__head">
         <div class="row">
             <div class="columns small-2"> Header 1 </div>
