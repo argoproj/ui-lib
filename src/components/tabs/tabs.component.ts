@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, EventEmitter, Output, Input, ElementRef, OnChanges } from '@angular/core';
 import { Tab } from './tab.interface';
 
 @Component({
@@ -6,7 +6,7 @@ import { Tab } from './tab.interface';
     templateUrl: './tabs.component.html',
     styles: [ require('./_tabs.scss').toString() ]
 })
-export class TabsComponent implements AfterViewInit {
+export class TabsComponent implements OnChanges {
     public tabs: Tab[] = [];
     public indicatorPosition: { left: number; right: number; directionToLeft: boolean };
 
@@ -17,11 +17,15 @@ export class TabsComponent implements AfterViewInit {
     constructor(private myElement: ElementRef) {
     }
 
-    public ngAfterViewInit() {
-        let el = this.myElement.nativeElement.querySelector('.active');
+    public ngOnChanges() {
         let parentEl = this.myElement.nativeElement.querySelector('.tabs__nav');
 
-        this.indicatorPosition = this.getIndicatorPosition(parentEl, el);
+        setTimeout(() => {
+            let el = parentEl.querySelector('.active');
+            if (el && parentEl) {
+                this.indicatorPosition = this.getIndicatorPosition(parentEl, el);
+            }
+        }, 0)
     }
 
     public addTab(tab: Tab) {
