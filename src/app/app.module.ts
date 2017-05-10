@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -33,6 +33,7 @@ import { ExampleOtherComponent } from './example-other/example-other.component';
     imports: [
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         GuiComponentsModule,
         HttpModule,
         RouterModule.forRoot([

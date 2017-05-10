@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { DateRange, NotificationsService, DropdownMenuSettings } from '../../components';
 
@@ -14,7 +15,12 @@ export class ExampleControlsComponent {
         iconName: 'fa-times-circle-o',
         action: () => alert('Hello'),
     }]);
+    public inputTest: string = 'Test';
+    private form: FormGroup;
 
     constructor(public notificationsService: NotificationsService) {
+        this.form = new FormGroup({
+            test: new FormControl('Test'),
+        });
     }
 }

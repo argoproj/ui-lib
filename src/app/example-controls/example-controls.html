@@ -8,6 +8,21 @@
         <h5>Radiobox</h5>
         <ax-radiobox label="Test Radiobox"></ax-radiobox>
     </div>
+    <div class="columns small-2">
+        <h5>Label as Placeholder</h5>
+        <div class="ax-form-row">
+            <input class="ax-field" type="text" id="input" ax-control-has-value [(ngModel)]="inputTest">
+            <label for="input">Enter the example text</label>
+        </div>
+        <form role="form" [formGroup]="form">
+            <div class="ax-form-row">
+                <div class="ax-form-row">
+                    <input id="test2" type="text" class="ax-field" ax-control-has-value formControlName="test">
+                    <label for="test2">Enter the example text</label>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <h3>Dropdowns:</h3>
