@@ -5,19 +5,20 @@
     padding: 12px 0 0;
 
     label {
-        font-size: 13px;
+        font-size: .9em;
         color: $ax-color-gray-6;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-    }
 
-    label:not(.ax-label-placeholder) {
-        text-transform: uppercase;
+        &:not(.ax-label-placeholder) {
+            font-size: 13px;
+            text-transform: uppercase;
 
-        & + .ax-field,
-        & + .ax-textarea {
-            margin-top: 8px;
+            & + .ax-field,
+            & + .ax-textarea {
+                margin-top: 8px;
+            }
         }
     }
 
@@ -64,7 +65,7 @@
     width: 100%;
     max-width: 100%;
     padding: 8px 0;
-    font-size: 0.9em;
+    font-size: .9em;
     background-color: transparent;
     border: 0;
     border-bottom: 2px solid #ccc;
@@ -80,7 +81,7 @@
 
     & + label.ax-label-placeholder {
         position: absolute;
-        top: 24px;
+        top: 20px;
         transition: top .2s, font .2s, color .2s;
         cursor: text;
     }
