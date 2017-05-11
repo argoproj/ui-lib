@@ -12,16 +12,8 @@
         <h5>Label as Placeholder</h5>
         <div class="ax-form-row">
             <input class="ax-field" type="text" id="input" ax-control-has-value [(ngModel)]="inputTest">
-            <label for="input">Enter the example text</label>
+            <label class="ax-label-placeholder" for="input">Enter the example text</label>
         </div>
-        <form role="form" [formGroup]="form">
-            <div class="ax-form-row">
-                <div class="ax-form-row">
-                    <input id="test2" type="text" class="ax-field" ax-control-has-value formControlName="test">
-                    <label for="test2">Enter the example text</label>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
 

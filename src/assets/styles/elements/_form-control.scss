@@ -4,13 +4,16 @@
     margin: 32px 0;
     padding: 12px 0 0;
 
-    label:not(.label-placeholder) {
+    label {
         font-size: 13px;
-        text-transform: uppercase;
         color: $ax-color-gray-6;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+    }
+
+    label:not(.ax-label-placeholder) {
+        text-transform: uppercase;
 
         & + .ax-field,
         & + .ax-textarea {
@@ -55,7 +58,8 @@
     }
 }
 
-.ax-field {
+.ax-field,
+.ax-textarea {
     position: relative;
     width: 100%;
     max-width: 100%;
@@ -63,11 +67,44 @@
     font-size: 0.9em;
     background-color: transparent;
     border: 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
     transition: border .2s;
+
+    .error & {
+        border-color: $ax-failed-color;
+    }
 
     &:focus {
         border-color: $ax-color-teal-6;
+    }
+
+    & + label.ax-label-placeholder {
+        position: absolute;
+        top: 24px;
+        transition: top .2s, font .2s, color .2s;
+        cursor: text;
+    }
+
+    &.ax-has-value + label.ax-label-placeholder,
+    &:focus + label.ax-label-placeholder {
+        top: 0;
+        font-size: .7em;
+    }
+
+    &:focus + label.ax-label-placeholder {
+        color: $ax-color-teal-6;
+    }
+}
+
+.ax-field {
+    // Hide autofill background
+    &:-webkit-autofill {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            transition: background-color 5000s ease-in-out 0s;
+        }
     }
 
     &__with-action-btn {
@@ -82,51 +119,12 @@
         &:focus {
             border-color: #1FBDD0;
         }
-
-        .error & {
-            border-color: $ax-failed-color;
-        }
-    }
-
-    .error & {
-        border-color: $ax-failed-color;
-    }
-
-    & + label {
-        position: absolute;
-        top: 24px;
-        transition: top .2s, font .2s;
-        cursor: text;
-    }
-
-    &.ax-has-value + label,
-    &:focus + label {
-        top: 0;
-        font-size: .7em;
-    }
-
-    &:focus + label {
-        color: $ax-color-teal-6;
     }
 }
 
 .ax-textarea {
-    width: 100%;
-    max-width: 100%;
-    padding: 8px 0;
-    font-size: 16px;
-    background-color: transparent;
-    border: 0;
-    border-bottom: 2px solid #ccc;
-    transition: border .2s;
-
     &:focus {
-        border-color: $ax-color-teal-5;
         outline: 0;
-    }
-
-    .error & {
-        border-color: $ax-failed-color;
     }
 }
 
