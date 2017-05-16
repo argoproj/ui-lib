@@ -24,6 +24,8 @@ import {
 } from './sliding-panel/sliding-panel.component';
 import { SlidingPanelService } from './sliding-panel/sliding-panel.service';
 import { SwipeCheckboxComponent } from './swipe-checkbox/swipe-checkbox.component';
+import { ButtonWaveDirective } from './directives/button-wave/button-wave.directive';
+import { InfiniteScrollDirective } from './directives/infinite-scroll/infinite-scroll.directive';
 
 let components = [
     CheckboxComponent,
@@ -48,6 +50,8 @@ let components = [
     SlidingPanelFooterDirective,
     SwipeCheckboxComponent,
     LogsComponent,
+    ButtonWaveDirective,
+    InfiniteScrollDirective,
 ];
 
 @NgModule({
