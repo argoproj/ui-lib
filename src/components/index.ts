@@ -7,3 +7,4 @@ export * from './notifications';
 export * from './logs/logs.component';
 export { Tab } from './tabs/tab.interface';
 export { SlidingPanelService } from './sliding-panel/sliding-panel.service';
+export { SwipeCheckboxLabels } from './swipe-checkbox/swipe-checkbox.interface';

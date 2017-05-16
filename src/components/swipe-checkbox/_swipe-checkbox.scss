@@ -4,7 +4,6 @@
     position: relative;
     display: inline-block;
     vertical-align: top;
-    width: 144px;
     height: 36px;
     background-color: none;
     cursor: pointer;
@@ -74,8 +73,4 @@
 
 .checked .swipe-label::after {
     opacity: 1;
-}
-
-.checked .swipe-handle {
-    left: 111px;
 }

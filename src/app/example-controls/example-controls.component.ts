@@ -14,6 +14,8 @@ export class ExampleControlsComponent {
         iconName: 'fa-times-circle-o',
         action: () => alert('Hello'),
     }]);
+    public swipeCheckboxFirst: boolean = false;
+    public swipeCheckboxSecond: boolean = true;
 
     constructor(public notificationsService: NotificationsService) {
     }
