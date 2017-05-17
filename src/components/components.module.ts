@@ -26,8 +26,8 @@ import { SlidingPanelService } from './sliding-panel/sliding-panel.service';
 import { SwipeCheckboxComponent } from './swipe-checkbox/swipe-checkbox.component';
 import { ButtonWaveDirective } from './directives/button-wave/button-wave.directive';
 import { InfiniteScrollDirective } from './directives/infinite-scroll/infinite-scroll.directive';
-import { ControlHasValueReactiveDirective } from './directives/label-as-placeholder/control-has-value-reactive.directive';
-import { ControlHasValueDirective } from './directives/label-as-placeholder/control-has-value.directive';
+import { LabelPlaceholderReactiveDirective } from './directives/label-as-placeholder/label-placeholder-reactive.directive';
+import { LabelPlaceholderDirective } from './directives/label-as-placeholder/label-placeholder.directive';
 
 let components = [
     CheckboxComponent,
@@ -54,8 +54,8 @@ let components = [
     LogsComponent,
     ButtonWaveDirective,
     InfiniteScrollDirective,
-    ControlHasValueDirective,
-    ControlHasValueReactiveDirective,
+    LabelPlaceholderDirective,
+    LabelPlaceholderReactiveDirective,
 ];
 
 @NgModule({

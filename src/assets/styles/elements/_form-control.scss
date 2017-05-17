@@ -82,8 +82,12 @@
     & + label.ax-label-placeholder {
         position: absolute;
         top: 20px;
-        transition: top .2s, font .2s, color .2s;
         cursor: text;
+    }
+
+    &:focus + label.ax-label-placeholder,
+    &.ax-focus-out + label.ax-label-placeholder {
+        transition: top .2s, font .2s, color .2s;
     }
 
     &.ax-has-value + label.ax-label-placeholder,
