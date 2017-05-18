@@ -65,7 +65,7 @@
     width: 100%;
     max-width: 100%;
     padding: 8px 0;
-    font-size: 14px;
+    font-size: 15px;
     background-color: transparent;
     border: 0;
     border-bottom: 2px solid #ccc;
@@ -82,9 +82,10 @@
 
     & + label.ax-label-placeholder {
         position: absolute;
-        top: 20px;
+        top: 24px;
         line-height: 1;
         cursor: text;
+        font-size: 15px;
     }
 
     &:focus + label.ax-label-placeholder,
