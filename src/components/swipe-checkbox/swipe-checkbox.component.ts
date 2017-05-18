@@ -39,11 +39,11 @@ export class SwipeCheckboxComponent implements ControlValueAccessor {
     public labels: SwipeCheckboxLabels = {enable: 'enable', disable: 'disable'};
     @Input()
     public width: number = 104;
-    @Input()
     private _value = false;
     public onChange: any = () => {};
     public onTouched: any = () => {};
 
+    @Input()
     get value() {
         return this._value;
     }
