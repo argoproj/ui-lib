@@ -76,7 +76,11 @@
 <h3>Swipe checkbox</h3>
 <div class="row">
     <div class="columns small-3">
-        <ax-swipe-checkbox [(ngModel)]="value" [label]="'My Switch'"></ax-swipe-checkbox><br />
-        <span>{{value}}</span>
+        <ax-swipe-checkbox [(ngModel)]="swipeCheckboxFirst" [title]="'Example 1'"></ax-swipe-checkbox><br />
+        <span>{{swipeCheckboxFirst}}</span>
+    </div>
+    <div class="columns small-3">
+        <ax-swipe-checkbox [(ngModel)]="swipeCheckboxSecond" [title]="'Example 2'" [width]="144" [labels]="{enable: 'enable rule', disable: 'disable rule'}"></ax-swipe-checkbox><br />
+        <span>{{swipeCheckboxSecond}}</span>
     </div>
 </div>
