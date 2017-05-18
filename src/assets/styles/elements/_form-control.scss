@@ -65,7 +65,7 @@
     width: 100%;
     max-width: 100%;
     padding: 8px 0;
-    font-size: .9em;
+    font-size: 14px;
     background-color: transparent;
     border: 0;
     border-bottom: 2px solid #ccc;
@@ -76,12 +76,14 @@
     }
 
     &:focus {
+        outline: 0;
         border-color: $ax-color-teal-6;
     }
 
     & + label.ax-label-placeholder {
         position: absolute;
         top: 20px;
+        line-height: 1;
         cursor: text;
     }
 
@@ -93,7 +95,7 @@
     &.ax-has-value + label.ax-label-placeholder,
     &:focus + label.ax-label-placeholder {
         top: 0;
-        font-size: .7em;
+        font-size: 12px;
     }
 
     &:focus + label.ax-label-placeholder {
@@ -124,12 +126,6 @@
         &:focus {
             border-color: #1FBDD0;
         }
-    }
-}
-
-.ax-textarea {
-    &:focus {
-        outline: 0;
     }
 }
 
