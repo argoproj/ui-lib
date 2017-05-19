@@ -27,10 +27,19 @@ export class SelectComponent implements ControlValueAccessor {
     public onTouched: any = () => {};
     public openedDropdown: boolean;
     public toTop: boolean;
+    public innerOptions: SelectOption[] = [];
     private innerValue: string;
 
     @Input()
-    public options: SelectOption[] = [];
+    set options(options: SelectOption[] | string[]) {
+        if (options.length > 0 && typeof options[0] === 'string') {
+            for (let key in options) {
+                this.innerOptions.push({ value: <string>options[key], name: <string>options[key] });
+            }
+        } else {
+            this.innerOptions = <SelectOption[]>options;
+        }
+    }
 
     @Input()
     public placeholder: string = 'Select option';
@@ -39,11 +48,11 @@ export class SelectComponent implements ControlValueAccessor {
     }
 
     get value() {
-        return this.innerValue;
+        return this.optionExists(this.innerValue) && this.innerValue;
     }
 
     get nameOfValue(): string {
-        return this.optionExists(this.value) && this.options.filter(option => option.value === this.value)[0].name;
+        return this.optionExists(this.value) && this.innerOptions.filter(option => option.value === this.value)[ 0 ].name;
     }
 
     set value(value) {
@@ -56,10 +65,10 @@ export class SelectComponent implements ControlValueAccessor {
     public openDropdown() {
         let offsetParent = this.el.nativeElement.offsetParent;
         let top = this.el.nativeElement.offsetTop;
-        let scrollWindowTop  = window.pageYOffset || document.documentElement.scrollTop;
+        let scrollWindowTop = window.pageYOffset || document.documentElement.scrollTop;
 
         for (; offsetParent !== null; offsetParent = offsetParent.offsetParent) {
-            top +=  offsetParent.offsetTop;
+            top += offsetParent.offsetTop;
         }
 
         this.toTop = this.el.nativeElement.querySelector('.options').offsetHeight + top - scrollWindowTop > window.innerHeight;
@@ -73,7 +82,7 @@ export class SelectComponent implements ControlValueAccessor {
     }
 
     public writeValue(value) {
-        if (value !== this.innerValue && this.optionExists(value)) {
+        if (value !== this.innerValue) {
             this.innerValue = value;
         }
     }
@@ -87,10 +96,10 @@ export class SelectComponent implements ControlValueAccessor {
     }
 
     private optionExists(value) {
-        return this.options.filter(option => option.value === value).length === 1;
+        return this.innerOptions.filter(option => option.value === value).length === 1;
     }
 
-    @HostListener('document:click', ['$event'])
+    @HostListener('document:click', [ '$event' ])
     public onClick(event) {
         if (!this.el.nativeElement.contains(event.target) && this.openedDropdown) {
             this.openedDropdown = false;

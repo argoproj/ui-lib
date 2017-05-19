@@ -16,7 +16,8 @@ export class ExampleControlsComponent {
     }]);
     public swipeCheckboxFirst: boolean = false;
     public swipeCheckboxSecond: boolean = true;
-    public inputTest: string = 'Test';
+    public inputTest: string = 'first';
+    public selectOptions = ['first', 'second'];
 
     constructor(public notificationsService: NotificationsService) {
     }

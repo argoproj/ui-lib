@@ -5,7 +5,7 @@
     </div>
     <div class="options" [class.opened]="openedDropdown" [class.to-top]="toTop">
         <div class="option-placeholder">{{ placeholder }}</div>
-        <div class="option" *ngFor="let option of options" (click)="select(option.value)"
+        <div class="option" *ngFor="let option of innerOptions" (click)="select(option.value)"
              [class.selected]="option.value === value">
             {{ option.name }}
         </div>
