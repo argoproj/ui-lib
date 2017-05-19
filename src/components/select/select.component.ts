@@ -26,6 +26,7 @@ export class SelectComponent implements ControlValueAccessor {
     public onChange: any = () => {};
     public onTouched: any = () => {};
     public openedDropdown: boolean;
+    public toTop: boolean;
     private innerValue: string;
 
     @Input()
@@ -53,6 +54,15 @@ export class SelectComponent implements ControlValueAccessor {
     }
 
     public openDropdown() {
+        let offsetParent = this.el.nativeElement.offsetParent;
+        let top = this.el.nativeElement.offsetTop;
+        let scrollWindowTop  = window.pageYOffset || document.documentElement.scrollTop;
+
+        for (; offsetParent !== null; offsetParent = offsetParent.offsetParent) {
+            top +=  offsetParent.offsetTop;
+        }
+
+        this.toTop = this.el.nativeElement.querySelector('.options').offsetHeight + top - scrollWindowTop > window.innerHeight;
         this.openedDropdown = true;
     }
 

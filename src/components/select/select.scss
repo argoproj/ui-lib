@@ -33,6 +33,11 @@
     box-shadow: 0 0 4px rgba(#000, .2);
     transition: opacity .2s, transform .2s, visibility .2s;
 
+    &.to-top {
+        top: auto;
+        bottom: 0;
+    }
+
     &:not(.opened) {
         transform: translateY(-30%);
         opacity: 0;
