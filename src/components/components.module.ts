@@ -28,6 +28,7 @@ import { ButtonWaveDirective } from './directives/button-wave/button-wave.direct
 import { InfiniteScrollDirective } from './directives/infinite-scroll/infinite-scroll.directive';
 import { LabelPlaceholderReactiveDirective } from './directives/label-as-placeholder/label-placeholder-reactive.directive';
 import { LabelPlaceholderDirective } from './directives/label-as-placeholder/label-placeholder.directive';
+import { SelectComponent } from './select/select.component';
 
 let components = [
     CheckboxComponent,
@@ -56,6 +57,7 @@ let components = [
     InfiniteScrollDirective,
     LabelPlaceholderDirective,
     LabelPlaceholderReactiveDirective,
+    SelectComponent,
 ];
 
 @NgModule({

@@ -15,6 +15,13 @@
             <label class="ax-label-placeholder" for="input">Enter the example text</label>
         </div>
     </div>
+    <div class="columns small-2">
+        <h5>Select</h5>
+        <div class="ax-form-row">
+            <ax-select-new [(ngModel)]="inputTest" [options]="selectOptions">
+            </ax-select-new>
+        </div>
+    </div>
 </div>
 
 <h3>Dropdowns:</h3>
