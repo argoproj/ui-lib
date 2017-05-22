@@ -6,6 +6,7 @@
         <div class="tabs__indicator" *ngIf="indicatorPosition"
              [class.to-right]="!indicatorPosition.directionToLeft"
              [class.to-left]="indicatorPosition.directionToLeft"
+             [class.moving]="isMoving"
              [style.left]="indicatorPosition.left + 'px'"
              [style.right]="indicatorPosition.right + 'px'"></div>
     </div>

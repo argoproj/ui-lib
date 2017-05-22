@@ -37,11 +37,11 @@
         height: 4px;
         background: $ax-color-teal-6;
 
-        &.to-left {
+        &.moving.to-left {
             transition: left .4s, right .4s .07s;
         }
 
-        &.to-right {
+        &.moving.to-right {
             transition: left .4s .07s, right .4s;
         }
     }
