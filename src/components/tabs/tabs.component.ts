@@ -38,7 +38,7 @@ export class TabsComponent implements OnChanges {
     public selectTab(event, tab: Tab) {
         // For animation
         this.isMoving = true;
-        setTimeout(() => this.isMoving = false, 400);
+        setTimeout(() => this.isMoving = false, 500);
 
         this.indicatorPosition = this.getIndicatorPosition(event.toElement.offsetParent, event.toElement);
         this.selectedTabKey = tab.tabKey;
