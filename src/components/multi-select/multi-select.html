@@ -1,0 +1,13 @@
+<div class="multi-select">
+    <div class="value" (click)="openDropdown()">
+        {{ nameOfValue || placeholder }}
+        <div class="value-arrow"><i class="ax-icon-expand-arrow"></i></div>
+    </div>
+    <div class="options" [class.opened]="openedDropdown" [class.to-top]="toTop">
+        <div class="option-placeholder">{{ placeholder }}</div>
+        <div class="option" *ngFor="let option of innerOptions" (click)="select(option.value)"
+             [class.selected]="innerValue.indexOf(option.value) > -1">
+            <ax-checkbox [checked]="innerValue.indexOf(option.value) > -1"></ax-checkbox> {{ option.name }}
+        </div>
+    </div>
+</div>

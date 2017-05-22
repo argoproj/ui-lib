@@ -29,6 +29,7 @@ import { InfiniteScrollDirective } from './directives/infinite-scroll/infinite-s
 import { LabelPlaceholderReactiveDirective } from './directives/label-as-placeholder/label-placeholder-reactive.directive';
 import { LabelPlaceholderDirective } from './directives/label-as-placeholder/label-placeholder.directive';
 import { SelectComponent } from './select/select.component';
+import { MultiSelectComponent } from './multi-select/multi-select.component';
 
 let components = [
     CheckboxComponent,
@@ -58,6 +59,7 @@ let components = [
     LabelPlaceholderDirective,
     LabelPlaceholderReactiveDirective,
     SelectComponent,
+    MultiSelectComponent,
 ];
 
 @NgModule({
