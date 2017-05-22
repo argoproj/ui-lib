@@ -32,6 +32,7 @@ export class SelectComponent implements ControlValueAccessor {
 
     @Input()
     set options(options: SelectOption[] | string[]) {
+        this.innerOptions = [];
         if (options.length > 0 && typeof options[0] === 'string') {
             for (let key in options) {
                 this.innerOptions.push({ value: <string>options[key], name: <string>options[key] });
