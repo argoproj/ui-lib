@@ -105,6 +105,12 @@ export class LogsComponent implements OnDestroy, AfterViewInit {
         let logSource = this.logsSource.loadLogs();
 
         if (logSource) {
+            // this is required to set correct width of logs after receive fisrt data
+            this.subscriptions.push(logSource.first().subscribe(logs => {
+                if (this.terminal) {
+                    this.terminal.fit();
+                }
+            }));
             this.subscriptions.push(logSource
                 .bufferTime(100).filter(logs => logs.length > 0).subscribe(logs => {
                     this.noData = false;
@@ -126,6 +132,5 @@ export class LogsComponent implements OnDestroy, AfterViewInit {
         } else {
             this.noData = true;
         }
-
     }
 }

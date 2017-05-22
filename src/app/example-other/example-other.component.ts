@@ -15,8 +15,10 @@ export class ExampleOtherComponent {
 
                 function addLogs() {
                     if (i++ < 1000) {
-                        observer.next(`${colors[i % colors.length]}${i} - Test log\n`);
-                        setTimeout(addLogs, 100);
+                        observer.next(`${colors[i % colors.length]}${i} - Test log Test log Test log Test log Test log Test log Test log Test log 
+                         Test log Test log Test log Test log Test log Test log Test log Test log Test log Test log Test log Test log Test log 
+                         Test log Test log\n`);
+                        setTimeout(addLogs, 1000);
                     }
                 }
                 addLogs();
