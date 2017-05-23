@@ -31,18 +31,23 @@
         }
     }
 
+    &__nav-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
     &__indicator {
         position: absolute;
         bottom: 0;
         height: 4px;
         background: $ax-color-teal-6;
 
-        &.moving.to-left {
-            transition: left .4s, right .4s .07s;
+        &.to-left {
+            transition: left .4s, right .4s .1s;
         }
 
-        &.moving.to-right {
-            transition: left .4s .07s, right .4s;
+        &.to-right {
+            transition: left .4s .1s, right .4s;
         }
     }
 

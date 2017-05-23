@@ -9,7 +9,6 @@ import { Tab } from './tab.interface';
 export class TabsComponent implements OnChanges {
     public tabs: Tab[] = [];
     public indicatorPosition: { left: number; right: number; directionToLeft: boolean };
-    public isMoving: boolean;
 
     @Output() public selected = new EventEmitter();
     @Input() public selectedTabKey: string;
@@ -20,7 +19,11 @@ export class TabsComponent implements OnChanges {
 
     public ngOnChanges() {
         setTimeout(() => {
-            this.updateIndicatorPosition();
+            let parentEl = this.myElement.nativeElement.querySelector('.tabs__nav-wrapper');
+            let el = parentEl.querySelector('.active');
+            if (el) {
+                this.indicatorPosition = this.getIndicatorPosition(parentEl, el);
+            }
         }, 0)
     }
 
@@ -36,10 +39,6 @@ export class TabsComponent implements OnChanges {
     }
 
     public selectTab(event, tab: Tab) {
-        // For animation
-        this.isMoving = true;
-        setTimeout(() => this.isMoving = false, 500);
-
         this.indicatorPosition = this.getIndicatorPosition(event.toElement.offsetParent, event.toElement);
         this.selectedTabKey = tab.tabKey;
         this.selected.emit({selectedTab: tab});
@@ -49,24 +48,11 @@ export class TabsComponent implements OnChanges {
         return tab.tabKey === this.selectedTabKey;
     }
 
-    private updateIndicatorPosition() {
-        let parentEl = this.myElement.nativeElement.querySelector('.tabs__nav');
-        let el = parentEl.querySelector('.active');
-        if (el && parentEl) {
-            this.indicatorPosition = this.getIndicatorPosition(parentEl, el);
-        }
-    }
-
     private getIndicatorPosition(parentEl, el) {
         return {
             left: el.offsetLeft,
             right: parentEl.offsetWidth - el.offsetWidth - el.offsetLeft,
-            directionToLeft: this.indicatorPosition && this.indicatorPosition && this.indicatorPosition.left > el.offsetLeft
+            directionToLeft: this.indicatorPosition && this.indicatorPosition.left > el.offsetLeft,
         }
-    }
-
-    @HostListener('window:resize')
-    private onResize() {
-        this.updateIndicatorPosition();
     }
 }
