@@ -54,5 +54,10 @@
     &__content {
         position: relative;
         padding: 16px;
+
+        &--scrollable {
+            position: absolute;
+            overflow: auto;
+        }
     }
 }

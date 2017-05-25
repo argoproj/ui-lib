@@ -11,6 +11,12 @@
         </ax-tab>
 
         <ax-tab tabKey="tables" tabTitle="Tables">
+            <h3>Whole page scrollable</h3>
+            <ax-example-tables></ax-example-tables>
+        </ax-tab>
+
+        <ax-tab tabKey="tables-scrollable" tabTitle="Tables - content scrollable" [isOnlyContentScrollable]="true" [extraVerticalScrollPadding]="86" [extraHorizontalScrollPadding]="20">
+            <h3>Only tab content scrollable</h3>
             <ax-example-tables></ax-example-tables>
         </ax-tab>
 
