@@ -14,7 +14,7 @@ export class SelectOption {
 }
 
 @Component({
-    selector: 'ax-select-new',
+    selector: 'ax-select',
     templateUrl: './select.html',
     styles: [ require('./select.scss').toString() ],
     providers: [
