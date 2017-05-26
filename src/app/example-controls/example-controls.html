@@ -95,3 +95,33 @@
         <span>{{swipeCheckboxSecond}}</span>
     </div>
 </div>
+
+<h3>Filter multi select</h3>
+<div class="row">
+    <div class="columns small-3">
+        <h5>Don't require Allow:</h5>
+        <ax-filter-multi-select
+            [brightStyle]="true"
+            [texts]="filterMultiSelect.messages"
+            [items]="filterMultiSelect.items"
+            [isStaticList]="filterMultiSelect.isStaticList"
+            [isDisplayedInline]="filterMultiSelect.isDisplayedInline"
+            [isConfirmationRequired]="false"
+            [selectedItems]="filterMultiSelectOne"
+            (onChange)="onEventTypeChange($event)">
+        </ax-filter-multi-select>
+        {{ filterMultiSelectOne | json }}
+    </div>
+    <div class="columns small-3">
+        <h5>Required Allow:</h5>
+        <ax-filter-multi-select
+            [brightStyle]="true"
+            [texts]="filterMultiSelect.messages"
+            [items]="filterMultiSelect.items"
+            [isStaticList]="filterMultiSelect.isStaticList"
+            [isDisplayedInline]="filterMultiSelect.isDisplayedInline"
+            [selectedItems]="filterMultiSelectOne"
+            (onChange)="onEventTypeChange($event)">
+        </ax-filter-multi-select>
+    </div>
+</div>

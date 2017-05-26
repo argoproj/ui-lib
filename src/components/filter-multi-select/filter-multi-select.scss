@@ -1,0 +1,175 @@
+@import '../../assets/styles/config';
+
+
+$filter-multi-select-width: auto; // 210px;
+$filter-multi-select-content-width: 250px;
+$filter-multi-select-content-height: 300px;
+
+.filter-multi-select {
+    width: $filter-multi-select-width;
+    position: relative;
+    display: block;
+
+    &__title {
+        font-size: 13px;
+        padding: 8px;
+        border-radius: 4px;
+        background-color: $ax-color-gray-1;
+        cursor: pointer;
+
+        & > i {
+            float: right;
+            color: $ax-color-gray-4;
+            margin-top: 3px;
+
+            .bright & {
+                color: $ax-color-gray-6;
+            }
+        }
+
+        &--active {
+            background-color: $ax-color-gray-3;
+            border: 1px solid $ax-color-gray-6;
+        }
+
+        .disabled & {
+            background-color: $ax-color-gray-3;
+            color: $ax-color-gray-6;
+        }
+
+        .bright & {
+            box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        width: $filter-multi-select-content-width;
+        background-color: $white-color;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        z-index: 1;
+    }
+
+    &__input {
+        padding: 0 10px;
+
+        & > input[type=text] {
+            background-color: $ax-color-gray-1;
+            border-radius: 4px;
+            margin: 10px 0 5px 0;
+            border: 1px solid $ax-color-teal-6;
+            font-size: 13px;
+            height: 35px;
+            padding: 0 5px;
+            width: 100%;
+        }
+
+        & > p {
+            color: $ax-color-gray-5;
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__choices {
+        font-size: 14px;
+        margin: 0;
+        max-height: $filter-multi-select-content-height;
+        overflow: auto;
+    }
+
+    &__choice, &__loader {
+        padding: 5px 5px 5px 10px;
+        width: 100%;
+
+        &:first-child {
+            padding-top: 10px;
+        }
+
+        &:last-child {
+            padding-bottom: 10px;
+        }
+
+        & > .ax-checkbox {
+            vertical-align: top;
+            width: 12%;
+        }
+
+        & > label {
+            word-break: break-all;
+            display: inline-block;
+            width: 86%;
+            text-overflow: ellipsis;
+        }
+
+        & > span {
+            font-size: 12px;
+            padding-left: 28px;
+            padding-right: 7px;
+            direction: rtl;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+            color: $ax-color-gray-5;
+        }
+    }
+
+    &__loader {
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &__action {
+        font-size: 13px;
+        padding: 12px 8px;
+        font-weight: 400;
+        background-color: $ax-color-gray-1;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        color: $ax-color-gray-4;
+    }
+
+    &__apply {
+        cursor: pointer;
+        color: $ax-color-teal-6;
+    }
+
+    &__results {
+        margin: 10px 0;
+    }
+
+    &__result {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 30px 0 10px;
+        border-radius: 15px;
+        background-color: $ax-color-gray-3;
+        color: $ax-color-gray-6;
+        position: relative;
+        font-size: 14px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        max-width: $filter-multi-select-width;
+        margin-right: 5px;
+
+        & > i {
+            color: $ax-color-teal-6;
+            position: absolute;
+            top: 7px;
+            right: 10px;
+            cursor: pointer;
+        }
+    }
+
+    &__inline-results {
+        font-weight: bold;
+    }
+}

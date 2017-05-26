@@ -8,3 +8,5 @@ export * from './logs/logs.component';
 export { Tab } from './tabs/tab.interface';
 export { SlidingPanelService } from './sliding-panel/sliding-panel.service';
 export { SwipeCheckboxLabels } from './swipe-checkbox/swipe-checkbox.interface';
+export * from './filter-multi-select/filter-multi-select.component';
+export * from './loader-custom/loader-custom.component';

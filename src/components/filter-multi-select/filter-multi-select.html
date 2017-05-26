@@ -1,0 +1,36 @@
+<div class="filter-multi-select" [ngClass]="{disabled: isDisabled, 'bright': brightStyle}" [ngStyle]="{width: width + 'px'}">
+    <div class="filter-multi-select__title" (click)="onToggleDropdown()">
+        {{ texts?.name }}<i class="ax-icon-expand-arrow" [hidden]="isActive"></i><i class="ax-icon-collapse-arrow" [hidden]="!isActive"></i><span class="filter-multi-select__inline-results" *ngIf="isDisplayedInline"><template ngFor let-item let-isLast="last" let-isFirst="first" [ngForOf]="selectedItems">{{ isFirst ? ': ' : ''}}{{ item[0].toUpperCase() + item.slice(1) }}{{ isLast ? '.' : ', ' }}</template></span>
+    </div>
+    <div class="filter-multi-select__content" [hidden]="!isActive">
+        <div class="filter-multi-select__input" [hidden]="isStaticList">
+            <input #inputElement type="text" [ngModel]='searchControlString' (ngModelChange)='searchStringChanged($event)'>
+            <p>{{ inputElement.value.length ? texts.notEmptyInput : texts.emptyInput }}</p>
+        </div>
+        <div class="filter-multi-select__choices" *ngIf="!showLoader">
+            <div class="filter-multi-select__choice" *ngFor="let item of displayedItems">
+                <div class="ax-checkbox">
+                    <input type="checkbox" name="options" value="{{item.value}}" [(ngModel)]="item.checked" (ngModelChange)="onItemChange()"><span><i
+                        class="fa fa-check"></i></span>
+                </div>
+                <label>{{ item.name }}</label>
+                <span>{{ item.subname }}</span>
+            </div>
+
+            <div class="filter-multi-select__choice" *ngIf="displayedItems.length === 0 && showEmptyListMsg && !showLoader">
+                There is no items to display
+            </div>
+        </div>
+        <div class="filter-multi-select__loader" *ngIf="showLoader">
+            <ax-loader-custom [size]="15"></ax-loader-custom>
+        </div>
+        <div class="filter-multi-select__action" *ngIf="isConfirmationRequired">
+            <div class="filter-multi-select__apply" (click)="onApply()">APPLY</div>
+        </div>
+    </div>
+    <div class="filter-multi-select__results" *ngIf="!isDisplayedInline">
+        <div class="filter-multi-select__result" [ngStyle]="{width: width + 'px'}" *ngFor="let selectedItem of selectedItems" ax-tooltip="{{selectedItem}}">
+            {{ selectedItem }} <i class="ax-icon-close" (click)="removeItemFromSelection(selectedItem)"></i>
+        </div>
+    </div>
+</div>

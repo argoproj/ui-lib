@@ -30,6 +30,8 @@ import { LabelPlaceholderReactiveDirective } from './directives/label-as-placeho
 import { LabelPlaceholderDirective } from './directives/label-as-placeholder/label-placeholder.directive';
 import { SelectComponent } from './select/select.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
+import { FilterMultiSelectComponent } from './filter-multi-select/filter-multi-select.component';
+import { LoaderCustomComponent } from './loader-custom/loader-custom.component';
 
 let components = [
     CheckboxComponent,
@@ -41,6 +43,7 @@ let components = [
     CopyButtonDirective,
     DateRangeSelectorComponent,
     DateRangeDropDownComponent,
+    FilterMultiSelectComponent,
     MarkdownComponent,
     RadioboxComponent,
     SwitchComponent,
@@ -53,6 +56,7 @@ let components = [
     SlidingPanelBodyDirective,
     SlidingPanelFooterDirective,
     SwipeCheckboxComponent,
+    LoaderCustomComponent,
     LogsComponent,
     ButtonWaveDirective,
     InfiniteScrollDirective,
