@@ -38,17 +38,7 @@ export class DropDownComponent implements AfterViewInit, OnDestroy, OnInit {
     }
 
     ngOnInit() {
-        let dropdownContent = $(this.el.nativeElement).find('div[data-dropdown]');
-        let content = $('.content');
         this.isLeft = this.customClass === 'left';
-
-        if (content && this.customClass !== 'align-date-range-dropdown'
-            && dropdownContent.height() < $(this.el.nativeElement).position().top) {
-            if (Math.max(content.height(), window.innerHeight) <= $(this.el.nativeElement).position().top +
-                dropdownContent.height() + 250) {
-                this.isTop = true;
-            }
-        }
     }
 
     ngAfterViewInit() {
@@ -71,7 +61,19 @@ export class DropDownComponent implements AfterViewInit, OnDestroy, OnInit {
     }
 
     open() {
-        this.dropDown.open();
+        let offsetParent = this.el.nativeElement.offsetParent;
+        let top = this.el.nativeElement.offsetTop;
+        let scrollWindowTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        for (; offsetParent !== null; offsetParent = offsetParent.offsetParent) {
+            top += offsetParent.offsetTop;
+        }
+
+        this.isTop = this.el.nativeElement.querySelector('.dropdown-pane').offsetHeight + top + 40 - scrollWindowTop > window.innerHeight;
+
+        setTimeout(() => {
+            this.dropDown.open();
+        }, 0);
     }
 
     close() {
