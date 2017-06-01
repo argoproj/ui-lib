@@ -1,6 +1,4 @@
-import {
-    Component, AfterViewInit, ElementRef, Input, OnInit, Directive, HostListener, ViewEncapsulation,
-} from '@angular/core';
+import { Component, ElementRef, Input, Directive, HostListener, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'ax-dropdown',
@@ -8,7 +6,7 @@ import {
     encapsulation: ViewEncapsulation.None,
     styles: [ require('./dropdown.scss').toString() ],
 })
-export class DropDownComponent implements AfterViewInit, OnInit {
+export class DropDownComponent {
 
     @Input()
     isMenu: boolean = false;
@@ -17,31 +15,43 @@ export class DropDownComponent implements AfterViewInit, OnInit {
     customClass: string;
 
     public opened: boolean;
-    public anchorHeight: number;
-    public isTop: boolean = false;
-    public isLeft: boolean = false;
+    public left: number = 0;
+    public top: number = 0;
 
     constructor(private el: ElementRef) {
     }
 
-    public ngOnInit() {
-        this.isLeft = this.customClass === 'left';
-    }
-
-    public ngAfterViewInit() {
-        this.anchorHeight = this.el.nativeElement.querySelector('.dropdown__anchor').offsetHeight + 4; // with margin
-    }
-
     public open() {
+        let scrollWindowTop = 0;
+        let scrollWindowLeft = 0;
         let offsetParent = this.el.nativeElement.offsetParent;
         let top = this.el.nativeElement.offsetTop;
-        let scrollWindowTop = window.pageYOffset || document.documentElement.scrollTop;
+        let left = this.el.nativeElement.offsetLeft;
+        let anchor = this.el.nativeElement.querySelector('.ax-dropdown__anchor');
+        let content = this.el.nativeElement.querySelector('.ax-dropdown__content');
+        let anchorHeight = anchor.offsetHeight + 2;
 
         for (; offsetParent !== null; offsetParent = offsetParent.offsetParent) {
+            scrollWindowTop += offsetParent.scrollTop;
+            scrollWindowLeft += offsetParent.scrollLeft;
             top += offsetParent.offsetTop;
+            left += offsetParent.offsetLeft;
         }
 
-        this.isTop = this.el.nativeElement.querySelector('.dropdown__content').offsetHeight + top + this.anchorHeight - scrollWindowTop > window.innerHeight;
+        // Set top position
+        if (content.offsetHeight + top + anchorHeight - scrollWindowTop > window.innerHeight) {
+            this.top = anchor.offsetTop - content.offsetHeight - 2;
+        } else {
+            this.top = anchor.offsetTop + anchorHeight;
+        }
+
+        // Set left position
+        if (content.offsetWidth + left - scrollWindowLeft > window.innerWidth || this.customClass === 'left') {
+            this.left = anchor.offsetLeft - content.offsetWidth + anchor.offsetWidth;
+        } else {
+            this.left = anchor.offsetLeft;
+        }
+
         this.opened = true;
     }
 
