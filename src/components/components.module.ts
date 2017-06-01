@@ -32,6 +32,9 @@ import { SelectComponent } from './select/select.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { FilterMultiSelectComponent } from './filter-multi-select/filter-multi-select.component';
 import { LoaderCustomComponent } from './loader-custom/loader-custom.component';
+import { PopupComponent } from './popup/popup.component';
+import { PopupConfirmationComponent } from './popup/popup-confirmation.component';
+import { PopupService } from './popup/popup.service';
 
 let components = [
     CheckboxComponent,
@@ -64,6 +67,8 @@ let components = [
     LabelPlaceholderReactiveDirective,
     SelectComponent,
     MultiSelectComponent,
+    PopupComponent,
+    PopupConfirmationComponent,
 ];
 
 @NgModule({
@@ -73,6 +78,9 @@ let components = [
     providers: [{
         provide: SlidingPanelService,
         useFactory: () => SlidingPanelService.create(),
+    }, {
+        provide: PopupService,
+        useFactory: () => PopupService.create(),
     }],
     imports: [
         CommonModule,

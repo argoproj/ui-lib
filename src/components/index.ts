@@ -10,3 +10,5 @@ export { SlidingPanelService } from './sliding-panel/sliding-panel.service';
 export { SwipeCheckboxLabels } from './swipe-checkbox/swipe-checkbox.interface';
 export * from './filter-multi-select/filter-multi-select.component';
 export * from './loader-custom/loader-custom.component';
+export { PopupService } from './popup/popup.service';
+export { PopupConfirmationComponent } from './popup/popup-confirmation.component';

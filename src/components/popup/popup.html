@@ -1,0 +1,9 @@
+<div class="popup" *ngIf="show">
+    <div class="popup__wrapper">
+        <div class="popup__container">
+            <div class="popup__box" [style.width]="modalW + 'px'">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>
