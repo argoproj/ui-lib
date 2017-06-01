@@ -24,9 +24,12 @@ export class PopupService {
         this.confirmationPopup.okButtonTitle = options && options.okButtonTitle || 'OK';
         this.confirmationPopup.cancelButtonTitle = options && options.cancelButtonTitle || 'Cancel';
         this.confirmationPopup.show = true;
-        return this.confirmationPopup.closed.asObservable().toPromise().then(res => {
-            this.confirmationPopup.show = false;
-            return res.confirmed;
+        return new Promise(resolve => {
+            let subscription = this.confirmationPopup.closed.subscribe(res => {
+                this.confirmationPopup.show = false;
+                subscription.unsubscribe();
+                resolve(res.confirmed);
+            });
         });
     }
 }

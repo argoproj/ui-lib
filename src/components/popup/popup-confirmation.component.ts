@@ -29,7 +29,6 @@ export class PopupConfirmationComponent {
     public closed = new EventEmitter<{ confirmed: boolean }>();
 
     public close(confirmed: boolean) {
-        this.show = false;
         this.closed.emit({ confirmed });
     }
 }
