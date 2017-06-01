@@ -1,0 +1,74 @@
+@import '../../assets/styles/config';
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    &__anchor {
+        cursor: pointer;
+    }
+
+    &__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        padding: 1rem;
+        background-color: $white-color;
+        box-shadow: 0 0 4px rgba(#000, .2);
+        transition: opacity .2s, transform .2s, visibility .2s;
+
+        &.is-left {
+            left: auto;
+            right: 0;
+        }
+
+        &.to-top {
+            top: auto;
+            bottom: 0;
+        }
+
+        &:not(.opened) {
+            transform: translateY(-30%);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .2s, transform .2s .2s, visibility .2s;
+        }
+
+        &.is-menu {
+            overflow: auto;
+            max-height: 360px;
+            padding: 0;
+            border: 0;
+
+            ul {
+                margin: 0;
+                list-style-type: none;
+                white-space: nowrap;
+                text-align: left;
+                cursor: pointer;
+                min-width: 150px;
+
+                li {
+                    padding: 0.5em 1em;
+                    font-size: .9em;
+                    border-bottom: 1px solid $ax-color-gray-2;
+                    color: $ax-color-gray-6;
+                    cursor: pointer;
+
+                    i {
+                        margin-right: 6px;
+                    }
+
+                    &:hover {
+                        background-color: $ax-color-gray-1;
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+}

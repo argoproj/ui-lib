@@ -1,25 +1,14 @@
-import { Component, AfterViewInit, ElementRef, Input, OnDestroy, OnInit, Directive, ViewEncapsulation } from '@angular/core';
-
-declare var Foundation: any;
-let nextId = 0;
+import {
+    Component, AfterViewInit, ElementRef, Input, OnInit, Directive, HostListener, ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
     selector: 'ax-dropdown',
-    template: `
-        <div class="dropdown__anchor" [attr.data-toggle]="id">
-            <ng-content select="ax-dropdown-anchor"></ng-content>
-        </div>
-        <div [attr.id]="id" data-dropdown class="dropdown-pane menu {{customClass}}" [ngClass]="{'dropdown-pane--menu': isMenu, 'top': isTop, 'left': isLeft}">
-            <ng-content select="ax-dropdown-content"></ng-content>
-        </div>
-    `,
+    templateUrl: './dropdown.html',
     encapsulation: ViewEncapsulation.None,
-    styles: [ require('./_dropdown.scss').toString() ]
+    styles: [ require('./dropdown.scss').toString() ],
 })
-export class DropDownComponent implements AfterViewInit, OnDestroy, OnInit {
-
-    @Input()
-    autoClose: boolean = true;
+export class DropDownComponent implements AfterViewInit, OnInit {
 
     @Input()
     isMenu: boolean = false;
@@ -27,40 +16,23 @@ export class DropDownComponent implements AfterViewInit, OnDestroy, OnInit {
     @Input()
     customClass: string;
 
-    private id: string;
-    private dropDown: any;
-    private onDocumentClickHandler;
-    private isTop: boolean = false;
-    private isLeft: boolean = false;
+    public opened: boolean;
+    public anchorHeight: number;
+    public isTop: boolean = false;
+    public isLeft: boolean = false;
 
     constructor(private el: ElementRef) {
-        this.id = `_dd_${nextId++}`;
     }
 
-    ngOnInit() {
+    public ngOnInit() {
         this.isLeft = this.customClass === 'left';
     }
 
-    ngAfterViewInit() {
-        let dropdownContent = $(this.el.nativeElement).find('div[data-dropdown]');
-        this.dropDown = new Foundation.Dropdown(dropdownContent);
-        this.onDocumentClickHandler = e => {
-            let clickedEl = document.elementFromPoint(e.pageX, e.pageY);
-            if (dropdownContent[0] !== clickedEl && dropdownContent.has(clickedEl).length === 0) {
-                this.close();
-            }
-        };
-        dropdownContent.on('show.zf.dropdown', () => {
-           if (this.autoClose) {
-               $(document).on('click', this.onDocumentClickHandler);
-           }
-        });
-        dropdownContent.on('hide.zf.dropdown', () => {
-            this.cleanHandler();
-        });
+    public ngAfterViewInit() {
+        this.anchorHeight = this.el.nativeElement.querySelector('.dropdown__anchor').offsetHeight + 4; // with margin
     }
 
-    open() {
+    public open() {
         let offsetParent = this.el.nativeElement.offsetParent;
         let top = this.el.nativeElement.offsetTop;
         let scrollWindowTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -69,28 +41,26 @@ export class DropDownComponent implements AfterViewInit, OnDestroy, OnInit {
             top += offsetParent.offsetTop;
         }
 
-        this.isTop = this.el.nativeElement.querySelector('.dropdown-pane').offsetHeight + top + 40 - scrollWindowTop > window.innerHeight;
-
-        setTimeout(() => {
-            this.dropDown.open();
-        }, 0);
+        this.isTop = this.el.nativeElement.querySelector('.dropdown__content').offsetHeight + top + this.anchorHeight - scrollWindowTop > window.innerHeight;
+        this.opened = true;
     }
 
-    close() {
-        this.dropDown.close();
+    public close() {
+        this.opened = false;
     }
 
-    ngOnDestroy() {
-        this.cleanHandler();
-    }
-
-    private cleanHandler() {
-        $(document).off('click', this.onDocumentClickHandler);
+    @HostListener('document:click', [ '$event' ])
+    public onClick(event) {
+        if (!this.el.nativeElement.contains(event.target) && this.opened) {
+            this.opened = false;
+        }
     }
 }
 
 @Directive({ selector: 'ax-dropdown-anchor' })
-export class DropdownAnchorDirective {}
+export class DropdownAnchorDirective {
+}
 
 @Directive({ selector: 'ax-dropdown-content' })
-export class DropdownContentDirective {}
+export class DropdownContentDirective {
+}

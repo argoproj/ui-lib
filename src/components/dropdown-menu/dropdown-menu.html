@@ -1,11 +1,9 @@
-<ax-dropdown isMenu="true" *ngIf="settings?.menu.length"  customClass="{{customClass}}" #dateRangeDropdown>
+<ax-dropdown [isMenu]="true" *ngIf="settings?.menu.length" customClass="{{customClass}}" #dateRangeDropdown>
     <ax-dropdown-anchor>
-        <div (click)="open(); $event.stopPropagation();">
-            <a *ngIf="customAnchor.childNodes.length == 0" class="ax-button ax-button--radius ax-button--has-icon">
-                <i class="fa {{settings.icon}}" aria-hidden="true"></i>
-            </a>
-            <div #customAnchor><ng-content></ng-content></div>
-        </div>
+        <a *ngIf="customAnchor.childNodes.length == 0" class="ax-button ax-button--radius ax-button--has-icon">
+            <i class="fa {{settings.icon}}" aria-hidden="true"></i>
+        </a>
+        <div #customAnchor><ng-content></ng-content></div>
     </ax-dropdown-anchor>
     <ax-dropdown-content>
         <ul *ngIf="settings && settings.menu.length > 0">

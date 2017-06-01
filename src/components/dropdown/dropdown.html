@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <div class="dropdown__anchor" (click)="open()">
+        <ng-content select="ax-dropdown-anchor"></ng-content>
+    </div>
+    <div class="dropdown__content" [class.opened]="opened" [class.is-left]="isLeft" [class.is-menu]="isMenu"
+         [style.top]="isTop ? 'auto' : anchorHeight + 'px'"
+         [style.bottom]="!isTop ? 'auto' : anchorHeight + 'px'">
+        <ng-content select="ax-dropdown-content"></ng-content>
+    </div>
+</div>
