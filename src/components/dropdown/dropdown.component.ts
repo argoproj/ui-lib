@@ -1,25 +1,12 @@
-import { Component, AfterViewInit, ElementRef, Input, OnDestroy, OnInit, Directive, ViewEncapsulation } from '@angular/core';
-
-declare var Foundation: any;
-let nextId = 0;
+import { Component, ElementRef, Input, Directive, HostListener, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'ax-dropdown',
-    template: `
-        <div class="dropdown__anchor" [attr.data-toggle]="id">
-            <ng-content select="ax-dropdown-anchor"></ng-content>
-        </div>
-        <div [attr.id]="id" data-dropdown class="dropdown-pane menu {{customClass}}" [ngClass]="{'dropdown-pane--menu': isMenu, 'top': isTop, 'left': isLeft}">
-            <ng-content select="ax-dropdown-content"></ng-content>
-        </div>
-    `,
+    templateUrl: './dropdown.html',
     encapsulation: ViewEncapsulation.None,
-    styles: [ require('./_dropdown.scss').toString() ]
+    styles: [ require('./dropdown.scss').toString() ],
 })
-export class DropDownComponent implements AfterViewInit, OnDestroy, OnInit {
-
-    @Input()
-    autoClose: boolean = true;
+export class DropDownComponent {
 
     @Input()
     isMenu: boolean = false;
@@ -27,70 +14,63 @@ export class DropDownComponent implements AfterViewInit, OnDestroy, OnInit {
     @Input()
     customClass: string;
 
-    private id: string;
-    private dropDown: any;
-    private onDocumentClickHandler;
-    private isTop: boolean = false;
-    private isLeft: boolean = false;
+    public opened: boolean;
+    public left: number = 0;
+    public top: number = 0;
 
     constructor(private el: ElementRef) {
-        this.id = `_dd_${nextId++}`;
     }
 
-    ngOnInit() {
-        this.isLeft = this.customClass === 'left';
-    }
-
-    ngAfterViewInit() {
-        let dropdownContent = $(this.el.nativeElement).find('div[data-dropdown]');
-        this.dropDown = new Foundation.Dropdown(dropdownContent);
-        this.onDocumentClickHandler = e => {
-            let clickedEl = document.elementFromPoint(e.pageX, e.pageY);
-            if (dropdownContent[0] !== clickedEl && dropdownContent.has(clickedEl).length === 0) {
-                this.close();
-            }
-        };
-        dropdownContent.on('show.zf.dropdown', () => {
-           if (this.autoClose) {
-               $(document).on('click', this.onDocumentClickHandler);
-           }
-        });
-        dropdownContent.on('hide.zf.dropdown', () => {
-            this.cleanHandler();
-        });
-    }
-
-    open() {
+    public open() {
+        let scrollWindowTop = 0;
+        let scrollWindowLeft = 0;
         let offsetParent = this.el.nativeElement.offsetParent;
         let top = this.el.nativeElement.offsetTop;
-        let scrollWindowTop = window.pageYOffset || document.documentElement.scrollTop;
+        let left = this.el.nativeElement.offsetLeft;
+        let anchor = this.el.nativeElement.querySelector('.ax-dropdown__anchor');
+        let content = this.el.nativeElement.querySelector('.ax-dropdown__content');
+        let anchorHeight = anchor.offsetHeight + 2;
 
         for (; offsetParent !== null; offsetParent = offsetParent.offsetParent) {
+            scrollWindowTop += offsetParent.scrollTop;
+            scrollWindowLeft += offsetParent.scrollLeft;
             top += offsetParent.offsetTop;
+            left += offsetParent.offsetLeft;
         }
 
-        this.isTop = this.el.nativeElement.querySelector('.dropdown-pane').offsetHeight + top + 40 - scrollWindowTop > window.innerHeight;
+        // Set top position
+        if (content.offsetHeight + top + anchorHeight - scrollWindowTop > window.innerHeight) {
+            this.top = anchor.offsetTop - content.offsetHeight - 2;
+        } else {
+            this.top = anchor.offsetTop + anchorHeight;
+        }
 
-        setTimeout(() => {
-            this.dropDown.open();
-        }, 0);
+        // Set left position
+        if (content.offsetWidth + left - scrollWindowLeft > window.innerWidth || this.customClass === 'left') {
+            this.left = anchor.offsetLeft - content.offsetWidth + anchor.offsetWidth;
+        } else {
+            this.left = anchor.offsetLeft;
+        }
+
+        this.opened = true;
     }
 
-    close() {
-        this.dropDown.close();
+    public close() {
+        this.opened = false;
     }
 
-    ngOnDestroy() {
-        this.cleanHandler();
-    }
-
-    private cleanHandler() {
-        $(document).off('click', this.onDocumentClickHandler);
+    @HostListener('document:click', [ '$event' ])
+    public onClick(event) {
+        if (!this.el.nativeElement.contains(event.target) && this.opened) {
+            this.opened = false;
+        }
     }
 }
 
 @Directive({ selector: 'ax-dropdown-anchor' })
-export class DropdownAnchorDirective {}
+export class DropdownAnchorDirective {
+}
 
 @Directive({ selector: 'ax-dropdown-content' })
-export class DropdownContentDirective {}
+export class DropdownContentDirective {
+}
