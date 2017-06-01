@@ -14,7 +14,7 @@ export class ExampleControlsComponent {
         title: 'test',
         iconName: 'fa-times-circle-o',
         action: () => alert('Hello'),
-    },{
+    }, {
         title: 'test2',
         iconName: 'fa-times-circle-o',
         action: () => alert('Hello'),
