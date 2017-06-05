@@ -1,7 +1,9 @@
 <div class="multi-select">
-    <div class="value" (click)="openDropdown()">
-        {{ nameOfValue || placeholder }}
-        <div class="value-arrow"><i class="ax-icon-expand-arrow"></i></div>
+    <div class="value" (click)="openDropdown()" *ngIf="!showTooltip">
+        {{ nameOfValue || placeholder }} <div class="value-arrow"><i class="ax-icon-expand-arrow"></i></div>
+    </div>
+    <div class="value" (click)="openDropdown()" *ngIf="showTooltip" ax-tooltip="{{ nameOfValue || placeholder }}">
+        {{ nameOfValue || placeholder }} <div class="value-arrow"><i class="ax-icon-expand-arrow"></i></div>
     </div>
     <div class="options" [class.opened]="openedDropdown" [class.to-top]="toTop">
         <div class="option-placeholder">{{ placeholder }}</div>

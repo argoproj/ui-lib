@@ -45,6 +45,9 @@ export class MultiSelectComponent implements ControlValueAccessor {
     @Input()
     public placeholder: string = 'Select options';
 
+    @Input()
+    public showTooltip: boolean;
+
     constructor(private el: ElementRef) {
     }
 
