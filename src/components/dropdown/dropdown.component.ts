@@ -1,4 +1,7 @@
-import { Component, ElementRef, Input, Directive, HostListener, ViewEncapsulation } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, ElementRef, Input, Directive, HostListener, ViewEncapsulation, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+
+const dropDownOpened = new EventEmitter<DropDownComponent>();
 
 @Component({
     selector: 'ax-dropdown',
@@ -6,17 +9,19 @@ import { Component, ElementRef, Input, Directive, HostListener, ViewEncapsulatio
     encapsulation: ViewEncapsulation.None,
     styles: [ require('./dropdown.scss').toString() ],
 })
-export class DropDownComponent {
+export class DropDownComponent implements OnInit, OnDestroy {
 
     @Input()
-    isMenu: boolean = false;
+    public isMenu: boolean = false;
 
     @Input()
-    customClass: string;
+    public customClass: string;
 
     public opened: boolean;
     public left: number = 0;
     public top: number = 0;
+
+    private subscriptions: Subscription[] = [];
 
     constructor(private el: ElementRef) {
     }
@@ -53,10 +58,24 @@ export class DropDownComponent {
         }
 
         this.opened = true;
+        dropDownOpened.emit(this);
     }
 
     public close() {
         this.opened = false;
+    }
+
+    public ngOnInit() {
+        dropDownOpened.subscribe(dropdown => {
+            if (this !== dropdown) {
+                this.close();
+            }
+        });
+    }
+
+    public ngOnDestroy() {
+        this.subscriptions.forEach(subscription => subscription.unsubscribe());
+        this.subscriptions = [];
     }
 
     @HostListener('document:click', [ '$event' ])
