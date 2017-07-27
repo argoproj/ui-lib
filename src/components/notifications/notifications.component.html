@@ -1,0 +1,15 @@
+<div class="ax-notifications-list" [style.left]="leftOffset + 'px'">
+    <template ngFor let-notification [ngForOf]="notifications" let-i="index">
+        <div class="ax-notification" *ngIf="notification !== undefined"
+             [class.success]="notification.type === notificationTypes.Success"
+             [class.warning]="notification.type === notificationTypes.Warning"
+             [class.error]="notification.type === notificationTypes.Error">
+            <i class="fa fa-check-circle" aria-hidden="true" *ngIf="notification.type === notificationTypes.Success"></i>
+            <i class="fa fa-exclamation-triangle" *ngIf="notification.type === notificationTypes.Warning"></i>
+            <i class="fa fa-times-circle-o" aria-hidden="true" *ngIf="notification.type === notificationTypes.Error"></i>
+            <div class="ax-notification__content" [innerHTML]="notification.content">
+            </div>
+            <div class="ax-notification__close" (click)="close(i)">x</div>
+        </div>
+    </template>
+</div>

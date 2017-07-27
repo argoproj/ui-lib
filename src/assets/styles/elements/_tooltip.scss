@@ -1,0 +1,49 @@
+$zindex-tooltip:           1070 !default;
+//** Tooltip max width
+$tooltip-max-width:           400px !default;
+//** Tooltip text color
+$tooltip-color:               #fff !default;
+//** Tooltip background color
+$tooltip-bg:                  #000 !default;
+
+$border-radius-base:        4px !default;
+
+$font-size-base:          14px !default;
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+@keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+.tooltip {
+    position: absolute;
+    z-index: $zindex-tooltip;
+    display: block;
+    white-space: normal;
+    font-size: $font-size-small;
+    -webkit-animation: 0.5s ease 0s normal forwards 1 fadein;
+    animation: 0.5s ease 0s normal forwards 1 fadein;
+
+}
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+    overflow: hidden;
+    max-width: $tooltip-max-width;
+    padding: 3px 8px;
+    color: $tooltip-color;
+    text-align: center;
+    line-height: initial;
+    text-overflow: ellipsis;
+
+    background-color: $tooltip-bg;
+    border-radius: $border-radius-base;
+}

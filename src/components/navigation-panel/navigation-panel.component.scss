@@ -1,0 +1,91 @@
+@import '../../assets/styles/config';
+
+.navigation-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: $nav-width;
+    padding: #{$top-bar-height} 0 0;
+    z-index: -1;
+    width: $nav-panel-width;
+    background-color: $white-color;
+    box-shadow: 3px 0 3px rgba(#000, .15);
+    transition: left .3s;
+
+    :not(.is-shown) > & {
+        left: -$nav-panel-width + $nav-width;
+        visibility: hidden;
+        transition: left .3s, visibility 0s .3s;
+    }
+
+    &.has-footer {
+        padding-bottom: $top-bar-height;
+    }
+
+    &__header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: $top-bar-height;
+        padding: 0 60px 0 28px;
+        font-weight: 300;
+        color: $ax-color-gray-7;
+        line-height: $top-bar-height;
+        font-size: 1.5em;
+        background-color: $ax-color-gray-3;
+    }
+
+    &__body {
+        height: 100%;
+        overflow: auto;
+
+        h2 {
+            font-size: 30px;
+            color: $ax-color-teal-6;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+
+    &__footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: $top-bar-height;
+        padding: 0 28px;
+        line-height: $top-bar-height;
+        font-size: 13px;
+        color: #999;
+        border-top: 1px solid #ddd;
+    }
+
+    &__footer-btn {
+        padding-top: 22px;
+    }
+
+    &__close {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+}
+
+.navigation-panel-overlay {
+    position: fixed;
+    z-index: -2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: $nav-width;
+    background-color: $ax-color-gray-3;
+    transition: opacity .4s, visibility 0s;
+
+    :not(.is-shown) > & {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .4s, visibility 0s .4s;
+    }
+}

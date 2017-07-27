@@ -1,0 +1,48 @@
+---
+type: service_template
+subtype: workflow
+name: lib-build
+inputs:
+  parameters:
+    commit:
+      default: "%%session.commit%%"
+    repo:
+      default: "%%session.repo%%"
+steps:
+- checkout:
+    template: axscm-checkout
+- build:
+    template: node
+    parameters:
+      cmd: "sh -c 'cd /src && npm install --no-optional && npm run tslint && npm run build:prod'"
+      code: "%%steps.checkout.code%%"
+    outputs:
+      artifacts:
+        code:
+          path: "/src"
+
+---
+type: policy
+name: lib-build
+description: Policy for GUI library build
+template: lib-build
+parameters:
+  repo: ""
+  commit: ""
+notifications:
+  -
+    when:
+      - on_change
+    whom:
+      - committer
+      - submitter
+      - author
+when:
+  -
+    event: on_pull_request
+    target_branches:
+      - .*
+  -
+    event: on_push
+    target_branches:
+      - .*

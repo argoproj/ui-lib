@@ -1,0 +1,26 @@
+<ax-dropdown #dropdown class="date-range-dropdown">
+    <ax-dropdown-anchor>
+        <i class="ax-icon-calendar" aria-hidden="true"></i>
+        <span>{{range.format()}}</span>
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </ax-dropdown-anchor>
+    <ax-dropdown-content>
+        <div class="date-range-dropdown__date">
+            <div>
+                <ax-date-range-selector [input]="range" [isUpdateNeeded]="dropdown.opened"></ax-date-range-selector>
+            </div>
+            <div class="date-range-selector__footer">
+                <div class="row">
+                    <div class="columns small-3">
+                        <button class="ax-button ax-button--base ax-button--full-width" type="button"
+                                (click)="applyDateRangeSelection()">Apply</button>
+                    </div>
+                    <div class="columns small-3">
+                        <button class="ax-button ax-button--link ax-button--full-width" type="button"
+                                (click)="cancelDateRangeSelection()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ax-dropdown-content>
+</ax-dropdown>

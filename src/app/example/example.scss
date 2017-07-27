@@ -1,0 +1,15 @@
+@import '../../assets/styles/gui-lib';
+
+.example {
+    &__icon {
+        text-align: center;
+        display: inline-block;
+        margin: 1rem;
+        width: 6rem;
+        vertical-align: top;
+
+        & i {
+            font-size: 2em;
+        }
+    }
+}

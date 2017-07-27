@@ -1,0 +1,20 @@
+<div class="tabs">
+    <div class="tabs__nav" [class.text-center]="navCenter">
+        <div [class.fixed-width]="fixedWidth">
+            <div class="tabs__nav-wrapper" [class.text-center]="navCenter">
+                <a *ngFor="let tab of tabs" (click)="selectTab($event, tab)" [ngClass]="{'active': tab.selected}">
+                    <i *ngIf="tab.tabIcon" class="fa fa-{{ tab.tabIcon }}"></i> {{ tab.tabTitle }}
+                </a>
+                <div class="tabs__indicator" *ngIf="indicatorPosition"
+                     [class.to-right]="!indicatorPosition.directionToLeft"
+                     [class.to-left]="indicatorPosition.directionToLeft"
+                     [style.left.px]="indicatorPosition.left"
+                     [style.right.px]="indicatorPosition.right"></div>
+            </div>
+            <div class="tabs__actions">
+                <ng-content select=".actions"></ng-content>
+            </div>
+        </div>
+    </div>
+    <ng-content></ng-content>
+</div>

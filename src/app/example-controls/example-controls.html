@@ -1,0 +1,130 @@
+<h3>Form Controls:</h3>
+<div class="row ax-form-row">
+    <div class="columns small-2">
+        <h5>Checkbox</h5>
+        <ax-checkbox label="Test Checkbox"></ax-checkbox>
+    </div>
+    <div class="columns small-2">
+        <h5>Radiobox</h5>
+        <ax-radiobox label="Test Radiobox"></ax-radiobox>
+    </div>
+    <div class="columns small-2">
+        <h5>Label as Placeholder</h5>
+        <div class="ax-form-row">
+            <input class="ax-field" type="text" id="input" ax-label-placeholder [(ngModel)]="inputTest">
+            <label class="ax-label-placeholder" for="input">Enter the example text</label>
+        </div>
+    </div>
+    <div class="columns small-2">
+        <h5>Select</h5>
+        <form [formGroup]="form">
+            <div class="ax-form-row">
+                <ax-select formControlName="single" [options]="selectOptions"></ax-select>
+            </div>
+            <div class="ax-form-row">
+                <ax-multi-select formControlName="multiple" [options]="selectOptions" [showTooltip]="true"></ax-multi-select>
+            </div>
+        </form>
+    </div>
+</div>
+
+<h3>Dropdowns:</h3>
+<div class="row">
+    <div class="columns small-3">
+        <h5>Basic example:</h5>
+        <ax-dropdown>
+            <ax-dropdown-anchor> <button class="ax-button ax-button--base"> Click me </button> </ax-dropdown-anchor>
+            <ax-dropdown-content> Dropdown content here </ax-dropdown-content>
+        </ax-dropdown>
+    </div>
+
+    <div class="columns small-3">
+        <h5>Menu:</h5>
+        <ax-dropdown-menu [settings]="menuSettings">
+            <button class="ax-button ax-button--base"> Click me </button>
+        </ax-dropdown-menu>
+    </div>
+
+    <div class="columns small-3">
+        <h5>Date Range Dropdown:</h5>
+        <ax-date-range-dropdown [range]="dateRangeInput"></ax-date-range-dropdown>
+    </div>
+</div>
+
+<h3>Switch</h3>
+<div class="row">
+    <div class="columns small-3">
+        <h5>Base:</h5>
+        <ax-switch [options]="[{value: 'a', title: 'First'}, {value: 'b', title: 'Second'}, {value: 'c', title: 'Third'}]"
+                   [selectedValue]="'b'"></ax-switch>
+    </div>
+    <div class="columns small-3">
+        <h5>Flexible:</h5>
+        <ax-switch [options]="[{value: 'a', title: 'First'}, {value: 'b', title: 'Second'}, {value: 'c', title: 'Third'}]"
+                   [selectedValue]="'b'" [isFlexible]="true"></ax-switch>
+    </div>
+</div>
+
+<h3>Other:</h3>
+<div class="row">
+    <div class="columns small-3">
+        <h5>Tooltip:</h5>
+        <button ax-tooltip="Tooltip text" class="ax-button ax-button--base">Hover</button>
+    </div>
+    <div class="columns small-3">
+        <h5>Notifications:</h5>
+        <button class="ax-button ax-button--base" (click)="notificationsService.success('Test')">Success Message</button>
+        <button class="ax-button ax-button--base" (click)="notificationsService.warning('Warning')">Warning Message</button>
+        <button class="ax-button ax-button--base" (click)="notificationsService.error('Error')">Error Message</button>
+        <button class="ax-button ax-button--base" (click)="notificationsService.success('Test <a>link</a> ')">HTML Success Message</button>
+    </div>
+    <div class="columns small-3">
+        <h5>Button wave:</h5>
+        <button class="ax-button ax-button--base" axButtonWave>Click me</button>
+        <h5>Button radius:</h5>
+        <button class="ax-button ax-button--radius" axButtonWave>+</button>
+    </div>
+</div>
+
+<h3>Swipe checkbox</h3>
+<div class="row">
+    <div class="columns small-3">
+        <ax-swipe-checkbox [(ngModel)]="swipeCheckboxFirst" [title]="'Example 1'"></ax-swipe-checkbox><br />
+        <span>{{swipeCheckboxFirst}}</span>
+    </div>
+    <div class="columns small-3">
+        <ax-swipe-checkbox [(ngModel)]="swipeCheckboxSecond" [title]="'Example 2'" [width]="144" [labels]="{enable: 'enable rule', disable: 'disable rule'}"></ax-swipe-checkbox><br />
+        <span>{{swipeCheckboxSecond}}</span>
+    </div>
+</div>
+
+<h3>Filter multi select</h3>
+<div class="row">
+    <div class="columns small-3">
+        <h5>Notify on each item selection:</h5>
+        {{ filterMultiSelectOne | json }}
+        <ax-filter-multi-select
+            [brightStyle]="true"
+            [texts]="filterMultiSelect.messages"
+            [items]="filterMultiSelect.items"
+            [isStaticList]="filterMultiSelect.isStaticList"
+            [isDisplayedInline]="filterMultiSelect.isDisplayedInline"
+            [selectedItems]="filterMultiSelectOne"
+            (onChange)="onEventTypeChange($event)">
+        </ax-filter-multi-select>
+    </div>
+    <div class="columns small-3">
+        <h5>Notify on dropdown close:</h5>
+        {{ filterMultiSelectOne | json }}
+        <ax-filter-multi-select
+            [brightStyle]="true"
+            [texts]="filterMultiSelect.messages"
+            [items]="filterMultiSelect.items"
+            [isStaticList]="filterMultiSelect.isStaticList"
+            [isDisplayedInline]="filterMultiSelect.isDisplayedInline"
+            [notifyOnItemSelect]="true"
+            [selectedItems]="filterMultiSelectOne"
+            (onChange)="onEventTypeChange($event)">
+        </ax-filter-multi-select>
+    </div>
+</div>

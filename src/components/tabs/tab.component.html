@@ -1,0 +1,6 @@
+<div [hidden]="!selected" class="tabs__content" [ngClass]="{'tabs__content--scrollable': isOnlyContentScrollable}"
+     [class.tabs__content--no-padding]="noPadding"
+     [style.height]="isOnlyContentScrollable ? 'calc(100vh - ' + extraVerticalScrollPadding + 'px)' : 'inherit'"
+     [style.width]="'calc(100% - ' + extraHorizontalScrollPadding + 'px)'">
+    <ng-content></ng-content>
+</div>

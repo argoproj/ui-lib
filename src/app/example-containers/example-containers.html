@@ -1,0 +1,57 @@
+<h3>Sliding panel:</h3>
+<div class="row ax-form-row">
+    <div class="columns small-3">
+        <h5>Normal Sliding panel</h5>
+        <button class="ax-button ax-button--base" (click)="normalSlidingPanelVisible = !normalSlidingPanelVisible"> Toggle panel </button>
+        <ax-sliding-panel [show]="normalSlidingPanelVisible" [hasCloseButton]="true" (closePanel)="normalSlidingPanelVisible = false">
+            <sliding-panel-body>
+                Panel content here
+            </sliding-panel-body>
+        </ax-sliding-panel>
+    </div>
+    <div class="columns small-3">
+        <h5>Off-canvas sliding panel</h5>
+        <button class="ax-button ax-button--base" (click)="offCanvasSlidingPanelVisible = !offCanvasSlidingPanelVisible"> Toggle panel </button>
+        <ax-sliding-panel [show]="offCanvasSlidingPanelVisible" [offCanvas]="true" [hasCloseButton]="true" (closePanel)="offCanvasSlidingPanelVisible = false">
+            <sliding-panel-body>
+                Panel content here
+            </sliding-panel-body>
+        </ax-sliding-panel>                   
+    </div>
+    <div class="columns small-3">
+        <h5>Middle sliding panel</h5>
+        <button class="ax-button ax-button--base" (click)="middleSlidingPanelVisible = !middleSlidingPanelVisible"> Toggle panel </button>
+        <ax-sliding-panel [show]="middleSlidingPanelVisible" [hasNoPadding]="true" [hasCloseButton]="true" [isMiddle]="true" (closePanel)="middleSlidingPanelVisible = false">
+            <sliding-panel-body>
+                Panel content here
+            </sliding-panel-body>
+        </ax-sliding-panel>
+    </div>
+</div>
+<h3>Whitebox</h3>
+<div class="white-box white-box--with-ico">
+    <div class="white-box__ico">
+        <i class="fa fa-cog"></i>
+    </div>
+    <h4>Nicely looking panel with optional icon.</h4>
+    <div *ngFor="let i of [1, 2, 3, 4]">
+        <ax-checkbox label="Setting {{i}}"></ax-checkbox>
+    </div>
+</div>
+
+<h3>Popup</h3>
+<div class="row">
+    <div class="columns small-3">
+        <h4>Generic Popup.</h4>
+        <button class="ax-button ax-button--base" (click)="popupVisible = true"> Show Popup </button>
+        <ax-popup [show]="popupVisible">
+            <h5>Popup component!</h5>
+            <button class="ax-button ax-button--base" (click)="popupVisible = false"> OK </button>
+        </ax-popup>
+    </div>
+    <div class="columns small-3">
+        <h4>Confirmation Popup.</h4>
+        <button class="ax-button ax-button--base" (click)="popupService.confirm('Do it?', 'Are you sure?', { cancelButtonTitle: 'No', okButtonTitle: 'Yes' })"> Show Popup </button>
+        <ax-popup-confirmation></ax-popup-confirmation>
+    </div>
+</div>

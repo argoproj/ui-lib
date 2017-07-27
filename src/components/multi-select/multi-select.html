@@ -1,0 +1,16 @@
+<div class="multi-select">
+    <div class="value" (click)="openDropdown()" *ngIf="!showTooltip">
+        {{ nameOfValue || placeholder }} <div class="value-arrow"><i class="ax-icon-expand-arrow"></i></div>
+    </div>
+    <div class="value" (click)="openDropdown()" *ngIf="showTooltip" ax-tooltip="{{ nameOfValue || placeholder }}">
+        {{ nameOfValue || placeholder }} <div class="value-arrow"><i class="ax-icon-expand-arrow"></i></div>
+    </div>
+    <div class="options" [class.opened]="openedDropdown" [class.to-top]="toTop">
+        <input class="search" type="text" placeholder="Search" [(ngModel)]="search" #searchEl>
+        <div class="option" *ngFor="let option of innerOptions | selectFilter: search" (click)="select(option.value)"
+             [class.selected]="innerValue.indexOf(option.value) > -1">
+            <ax-checkbox [checked]="innerValue.indexOf(option.value) > -1"></ax-checkbox> {{ option.name }}
+        </div>
+        <div class="empty" *ngIf="(innerOptions | selectFilter: search).length === 0">No results</div>
+    </div>
+</div>

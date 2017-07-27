@@ -1,0 +1,15 @@
+<ax-dropdown [isMenu]="true" *ngIf="settings?.menu.length" customClass="{{customClass}}" #dateRangeDropdown>
+    <ax-dropdown-anchor>
+        <a *ngIf="customAnchor.childNodes.length == 0" class="ax-button ax-button--radius ax-button--has-icon">
+            <i class="fa {{settings.icon}}" aria-hidden="true"></i>
+        </a>
+        <div #customAnchor><ng-content></ng-content></div>
+    </ax-dropdown-anchor>
+    <ax-dropdown-content>
+        <ul *ngIf="settings && settings.menu.length > 0">
+            <li *ngFor="let item of settings.menu; trackBy:byTitle" (click)="item.action(); close(); $event.stopPropagation();">
+                <i *ngIf="item.iconName" class="fa {{item.iconName}}" aria-hidden="true"></i> {{item.title}}
+            </li>
+        </ul>
+    </ax-dropdown-content>
+</ax-dropdown>

@@ -1,0 +1,10 @@
+<div class="ax-dropdown">
+    <div class="ax-dropdown__anchor" (click)="open(); $event.stopPropagation();">
+        <ng-content select="ax-dropdown-anchor"></ng-content>
+    </div>
+    <div class="ax-dropdown__content" [class.opened]="opened" [class.is-menu]="isMenu"
+         [style.left.px]="left"
+         [style.top.px]="top">
+        <ng-content select="ax-dropdown-content"></ng-content>
+    </div>
+</div>

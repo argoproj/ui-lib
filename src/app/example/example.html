@@ -1,0 +1,34 @@
+<ax-notifications></ax-notifications>
+<div class="example">
+    <ax-tabs [selectedTabKey]="selectedTab" (selected)="selectTab($event.selectedTab.tabKey)">
+        <div class="actions">
+            <i class="ax-icon-filter"></i>
+        </div>
+        <ax-tab tabKey="controls" tabTitle="Controls">
+            <ax-example-controls></ax-example-controls>
+        </ax-tab>
+
+        <ax-tab tabKey="containers" tabTitle="Containers">
+            <ax-example-containers></ax-example-containers>
+        </ax-tab>
+
+        <ax-tab tabKey="tables" tabTitle="Tables">
+            <h3>Whole page scrollable</h3>
+            <ax-example-tables></ax-example-tables>
+        </ax-tab>
+
+        <ax-tab tabKey="tables-scrollable" tabTitle="Tables - content scrollable" [isOnlyContentScrollable]="true"
+                [extraVerticalScrollPadding]="86" [extraHorizontalScrollPadding]="20">
+            <h3>Only tab content scrollable</h3>
+            <ax-example-tables></ax-example-tables>
+        </ax-tab>
+
+        <ax-tab tabKey="icons" tabTitle="Icons">
+            <ax-example-icons></ax-example-icons>
+        </ax-tab>
+
+        <ax-tab tabKey="other" tabTitle="other">
+            <ax-example-other></ax-example-other>
+        </ax-tab>
+    </ax-tabs>
+</div>

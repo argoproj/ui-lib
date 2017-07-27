@@ -1,0 +1,5 @@
+<div (click)="swipe()" class="swipe" [ngClass]="{ 'checked': value }" [attr.title]="title" [style.width.px]="width">
+    <input type="checkbox" class="swipe-input" [value]="value" [attr.checked]="value" [attr.aria-label]="title">
+    <span class="swipe-label" [attr.data-on]="labels.enable" [attr.data-off]="labels.disable"></span>
+    <span class="swipe-handle" [style.left.px]="value ? width - 33 : 3"></span>
+</div>

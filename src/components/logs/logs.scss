@@ -1,0 +1,51 @@
+@import '../../assets/styles/config';
+@import 'node_modules/xterm/dist/xterm';
+
+.sys-logs {
+    font: normal 13px/1.2 'Courier', sans-serif;
+    line-height: 20px;
+    height: 100%;
+    overflow: hidden;
+
+    .tail-logs {
+        position:fixed;
+        right:100px;
+        a {
+            font-size:12px;
+        }
+        
+    }
+
+
+    &__item {
+        white-space: pre;
+    }
+
+    .bk-to-top {
+        font-size: 12px;
+        position: fixed;
+        bottom: 20px;
+        padding: 20px;
+        right: 80px;
+    }
+}
+
+.log-content {
+    height: 100%;
+}
+
+.log-container {
+    height: 100%;
+}
+
+.xterm-theme-ax {
+    background-color: transparent;
+    color: $ax-color-gray-7;
+    .xterm-viewport {
+        background-color: transparent;
+    }
+
+    .terminal-cursor {
+        background-color: transparent !important;
+    }
+}

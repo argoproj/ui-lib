@@ -1,0 +1,36 @@
+@import '../../assets/styles/config';
+
+.popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /*dim the background*/
+    border: 1px solid #DCDCDC;
+
+    &__wrapper {
+        position: absolute;
+        display: table;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__container {
+        display: table-cell;
+        vertical-align: middle;
+        overflow: hidden;
+    }
+
+    &__box {
+        overflow: hidden;
+        box-shadow: $shadow;
+        min-width: 400px;
+        min-height: 100px;
+        z-index: 200;
+        margin: 0 auto;
+        background-color: #FFF;
+    }
+}

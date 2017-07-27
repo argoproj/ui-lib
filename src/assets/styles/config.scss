@@ -1,0 +1,80 @@
+$shadow: 3px 3px 20px #888888;
+$border-radius: 5px;
+
+// Foundation settings
+$global-width: 100%;
+$dropdown-width: auto;
+$breakpoint-classes: (small medium large xlarge xxlarge);
+$body-font-family: 'Heebo', sans-serif !default;
+
+// Font Awesome settings
+$fa-font-path: 'assets/font-awesome/fonts' !default;
+
+// Other
+$top-bar-height: 80px;
+$notifications-height: 80px;
+$notifications-z-index: 8;
+$sliding-panel-z-index: 20;
+$sliding-panel-offcanvas-width: 500px;
+$basePageWidth: 1024px;
+$ax-breakpoint-md: 1400px;
+
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+// Ax product colors
+$ax-color-gray-1: #F8FBFB;
+$ax-color-gray-2: #EFF3F5;
+$ax-color-gray-3: #DEE6EB;
+$ax-color-gray-4: #CCD6DD;
+$ax-color-gray-5: #8FA4B1;
+$ax-color-gray-6: #6D7F8B;
+$ax-color-gray-7: #495763;
+$ax-color-gray-8: #363C4A;
+$ax-color-gray-9: #000000;
+
+$ax-color-teal-1: #F5FBFD;
+$ax-color-teal-2: #DFF6F9;
+$ax-color-teal-3: #BDECF2;
+$ax-color-teal-4: #99E1EA;
+$ax-color-teal-5: #1FBDD0;
+$ax-color-teal-6: #00A2B3;
+$ax-color-teal-7: #006F8A;
+$ax-color-teal-8: #004C67;
+
+$ax-color-orange: #FF8046;
+$ax-color-tree-poppy: #fc9820;
+
+$ax-color-blue: #48A0FF;
+$ax-color-cyan: #3DE3FF;
+
+$ax-color-purple: #623C98;
+$ax-color-tapestry: #b268a7;
+$ax-color-magenta: #9B2987;
+
+$white-color: #FFFFFF;
+
+$instaGradient: linear-gradient(-58deg, $ax-color-purple 0%, $ax-color-magenta 50%, $ax-color-tree-poppy 100%);
+
+// Status colors
+$ax-failed-color: #E96D76;
+$ax-failed-color-dark: #c04b4f;
+$ax-failed-color-light: #ff6262;
+$ax-status-failed-color: #ef0b28;
+$ax-color-red: #F00052;
+
+$ax-success-color: #18BE94;
+$ax-success-color-dark: #3F946D;
+$ax-success-color-light: #95D58F;
+$ax-status-success-color: #0d8d38;
+$ax-color-green: #7ED321;
+
+$ax-status-warning-color: #f4c030;
+$ax-color-yellow: #FFD100;
+
+$ax-running-color-dark: #378398;
+$ax-running-color-light: #02C4D3;
+$ax-running-color: #0DADEA;

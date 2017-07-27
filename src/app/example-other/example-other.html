@@ -1,0 +1,18 @@
+<h3>Logs</h3>
+<div [style.height]="'200px'" [style.width]="'800px'">
+    <ax-logs [source]="logsSource" [tailLogs]="tailLogs"></ax-logs>
+</div>
+<h3>Carousel</h3>
+<div>
+    <ax-carousel [items]="carouselImages" [options]="{items: 5, loop: false}">
+        <template let-item>
+            <div [style.width]="'100px'" [style.height]="'100px'" >
+                <img [src]="item">
+            </div>
+        </template>
+    </ax-carousel>
+</div>
+<h3>Markdown</h3>
+<div>
+    <ax-markdown [markdown]="testMarkdown" ></ax-markdown>
+</div>

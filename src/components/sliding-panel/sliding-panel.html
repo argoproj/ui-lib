@@ -1,0 +1,26 @@
+<div class="sliding-panel"
+     [class.sliding-panel--has-header]="hasHeader"
+     [class.sliding-panel--has-footer]="hasFooter"
+     [class.sliding-panel--is-narrow]="isNarrow"
+     [class.sliding-panel--is-middle]="isMiddle"
+     [class.sliding-panel--opened]="isShown"
+     [class.sliding-panel--no-padding]="hasNoPadding"
+     [class.sliding-panel--off-canvas]="offCanvas">
+    <div #panelWrapper class="sliding-panel__wrapper">
+        <button *ngIf="hasCloseButton" class="sliding-panel__close" aria-hidden="true" (click)="close()">
+            <span>
+                <i class="ax-icon-close" aria-hidden="true"></i>
+            </span>
+        </button>
+        <div class="sliding-panel__header" [ngClass]="{'sliding-panel__header--close-btn-right-padding': hasCloseButton}" #panelHeader [hidden]="!hasHeader">
+            <ng-content select="sliding-panel-header"></ng-content>
+        </div>
+        <div class="sliding-panel__body">
+            <ng-content select="sliding-panel-body"></ng-content>
+        </div>
+        <div class="sliding-panel__footer" #panelFooter [hidden]="!hasFooter">
+            <ng-content select="sliding-panel-footer"></ng-content>
+        </div>
+    </div>
+    <div *ngIf="!offCanvas" class="sliding-panel__outside" (click)="close()"></div>
+</div>

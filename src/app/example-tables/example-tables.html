@@ -1,0 +1,18 @@
+<div class="ax-table-list ax-table-list--clickable"
+    ax-infinite-scroll [ax-infinite-scroll-distance]="1" [ax-scroll-window]="true" [ax-immediate-check]="true" (scrolled)="addTableItems()">
+
+    <div class="ax-table-list__head">
+        <div class="row">
+            <div class="columns small-2"> Header 1 </div>
+            <div class="columns small-5"> Header 2 </div>
+            <div class="columns small-5"> Header 3 </div>
+        </div>
+    </div>
+    <div class="ax-table-list__row" *ngFor="let item of tableItems">
+        <div class="row">
+            <div class="columns small-2"> Cell 1 {{item}} </div>
+            <div class="columns small-5"> Cell 2 {{item}}</div>
+            <div class="columns small-5"> Cell 3 {{item}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="select">
+    <div class="value" (click)="openDropdown()">
+        {{ nameOfValue || placeholder }}
+        <div class="value-arrow"><i class="ax-icon-expand-arrow"></i></div>
+    </div>
+    <div class="options" [class.opened]="openedDropdown" [class.to-top]="toTop">
+        <input class="search" type="text" placeholder="Search" [(ngModel)]="search" #searchEl>
+        <div class="option" *ngFor="let option of innerOptions | selectFilter: search" (click)="select(option.value)"
+             [class.selected]="option.value === value">
+            {{ option.name }}
+        </div>
+        <div class="empty" *ngIf="(innerOptions | selectFilter: search).length === 0">No results</div>
+    </div>
+</div>

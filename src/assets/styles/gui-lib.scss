@@ -1,0 +1,42 @@
+@import './config';
+@import './ax-icons-auto';
+@import './ax-icons';
+@import './elements/form-control';
+@import './elements/ax-list';
+@import './elements/button';
+@import './elements/form-control';
+@import './elements/table-list';
+@import './elements/tooltip';
+@import './elements/containers';
+
+@import 'node_modules/font-awesome/scss/font-awesome';
+@import 'node_modules/foundation-sites/scss/foundation';
+
+@include foundation-global-styles;
+@include foundation-flex-classes;
+@include foundation-flex-grid;
+@include foundation-dropdown;
+@include foundation-typography;
+@include foundation-visibility-classes;
+
+body {
+    margin: 0;
+    font-family: $body-font-family;
+    font-weight: normal;
+    font-size: 16px;
+    font-style: normal;
+    color: $ax-color-gray-7;
+    background: $ax-color-gray-3;
+
+    button, a, span, input {
+        outline: none !important
+    }
+}
+
+a, a:hover {
+    color: $ax-color-teal-6;
+}
+
+h1, h2 {
+    color: $ax-color-teal-6;
+}

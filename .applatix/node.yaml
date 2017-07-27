@@ -1,0 +1,24 @@
+---
+type: service_template
+subtype: container
+name: node
+description: Container with installed Node JS
+container:
+  resources:
+    mem_mib: 2048
+    cpu_cores: 0.4
+    disk_gb: 2
+  image: docker.io/library/node:7.2.1
+  docker_options: ''
+  command: "%%cmd%%"
+inputs:
+  artifacts:
+  - from: "%%code%%"
+    path: "/src"
+  parameters:
+    code:
+    cmd:
+outputs:
+  artifacts:
+    code:
+      path: "/src"

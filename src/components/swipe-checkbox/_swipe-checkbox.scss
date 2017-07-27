@@ -1,0 +1,76 @@
+@import '../../assets/styles/config';
+
+.swipe {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    height: 36px;
+    background-color: none;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.swipe-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.swipe-label {
+    position: relative;
+    display: block;
+    height: inherit;
+    font-size: 14px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background: $ax-failed-color;
+    border-radius: 20px;
+    transition: 0.15s ease-out;
+    transition-property: opacity background;
+    color: #2d2d2d;
+}
+
+.swipe-label::before, .swipe-label::after {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    line-height: 1;
+    transition: inherit;
+}
+
+.swipe-label::before {
+    content: attr(data-off);
+    right: 11px;
+    color: #fff;
+}
+
+.swipe-label::after {
+    content: attr(data-on);
+    left: 15px;
+    color: #fff;
+    opacity: 0;
+}
+
+.swipe-handle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 15px;
+    transition: left 0.15s ease-out;
+}
+
+.checked .swipe-label {
+    background: $ax-success-color;
+}
+
+.checked .swipe-label::before {
+    opacity: 0;
+}
+
+.checked .swipe-label::after {
+    opacity: 1;
+}
