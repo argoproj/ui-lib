@@ -1,9 +1,9 @@
 @font-face {
     font-family: "ax-icon-v1";
-    src: url("./assets/fonts/ax-icon-v1.eot?4c840bbed8b04a110bbfd6caaa8fc4a7?#iefix") format("embedded-opentype"),
-url("./assets/fonts/ax-icon-v1.woff?4c840bbed8b04a110bbfd6caaa8fc4a7") format("woff"),
-url("./assets/fonts/ax-icon-v1.ttf?4c840bbed8b04a110bbfd6caaa8fc4a7") format("truetype"),
-url("./assets/fonts/ax-icon-v1.svg?4c840bbed8b04a110bbfd6caaa8fc4a7#ax-icon-v1") format("svg");
+    src: url("./assets/fonts/ax-icon-v1.eot?f2f664bd3fd2c9a7778e9322fb53c291?#iefix") format("embedded-opentype"),
+url("./assets/fonts/ax-icon-v1.woff?f2f664bd3fd2c9a7778e9322fb53c291") format("woff"),
+url("./assets/fonts/ax-icon-v1.ttf?f2f664bd3fd2c9a7778e9322fb53c291") format("truetype"),
+url("./assets/fonts/ax-icon-v1.svg?f2f664bd3fd2c9a7778e9322fb53c291#ax-icon-v1") format("svg");
 }
 
 i {
@@ -142,249 +142,252 @@ i {
 .ax-icon-concurrent-usage:before {
   content: "\f11f";
 }
-.ax-icon-configurations:before {
+.ax-icon-configs:before {
   content: "\f120";
 }
-.ax-icon-connect:before {
+.ax-icon-configurations:before {
   content: "\f121";
 }
-.ax-icon-console:before {
+.ax-icon-connect:before {
   content: "\f122";
 }
-.ax-icon-dashboards:before {
+.ax-icon-console:before {
   content: "\f123";
 }
-.ax-icon-delete-attribute:before {
+.ax-icon-dashboards:before {
   content: "\f124";
 }
-.ax-icon-delete:before {
+.ax-icon-delete-attribute:before {
   content: "\f125";
 }
-.ax-icon-deploy:before {
+.ax-icon-delete:before {
   content: "\f126";
 }
-.ax-icon-deployment:before {
+.ax-icon-deploy:before {
   content: "\f127";
 }
-.ax-icon-docker:before {
+.ax-icon-deployment:before {
   content: "\f128";
 }
-.ax-icon-docs:before {
+.ax-icon-docker:before {
   content: "\f129";
 }
-.ax-icon-download:before {
+.ax-icon-docs:before {
   content: "\f12a";
 }
-.ax-icon-edit-property:before {
+.ax-icon-download:before {
   content: "\f12b";
 }
-.ax-icon-edit-user:before {
+.ax-icon-edit-property:before {
   content: "\f12c";
 }
-.ax-icon-edit:before {
+.ax-icon-edit-user:before {
   content: "\f12d";
 }
-.ax-icon-expand-arrow:before {
+.ax-icon-edit:before {
   content: "\f12e";
 }
-.ax-icon-expand:before {
+.ax-icon-expand-arrow:before {
   content: "\f12f";
 }
-.ax-icon-external-link:before {
+.ax-icon-expand:before {
   content: "\f130";
 }
-.ax-icon-fav-selected:before {
+.ax-icon-external-link:before {
   content: "\f131";
 }
-.ax-icon-fav:before {
+.ax-icon-fav-selected:before {
   content: "\f132";
 }
-.ax-icon-filter:before {
+.ax-icon-fav:before {
   content: "\f133";
 }
-.ax-icon-fixture:before {
+.ax-icon-filter:before {
   content: "\f134";
 }
-.ax-icon-fixturecat:before {
+.ax-icon-fixture:before {
   content: "\f135";
 }
-.ax-icon-fixturenew:before {
+.ax-icon-fixturecat:before {
   content: "\f136";
 }
-.ax-icon-folder-lock:before {
+.ax-icon-fixturenew:before {
   content: "\f137";
 }
-.ax-icon-gcp-logo:before {
+.ax-icon-folder-lock:before {
   content: "\f138";
 }
-.ax-icon-git:before {
+.ax-icon-gcp-logo:before {
   content: "\f139";
 }
-.ax-icon-github:before {
+.ax-icon-git:before {
   content: "\f13a";
 }
-.ax-icon-help:before {
+.ax-icon-github:before {
   content: "\f13b";
 }
-.ax-icon-hosts:before {
+.ax-icon-help:before {
   content: "\f13c";
 }
-.ax-icon-import:before {
+.ax-icon-hosts:before {
   content: "\f13d";
 }
-.ax-icon-info:before {
+.ax-icon-import:before {
   content: "\f13e";
 }
-.ax-icon-integrations:before {
+.ax-icon-info:before {
   content: "\f13f";
 }
-.ax-icon-intlogo:before {
+.ax-icon-integrations:before {
   content: "\f140";
 }
-.ax-icon-jira:before {
+.ax-icon-intlogo:before {
   content: "\f141";
 }
-.ax-icon-job:before {
+.ax-icon-jira:before {
   content: "\f142";
 }
-.ax-icon-label:before {
+.ax-icon-job:before {
   content: "\f143";
 }
-.ax-icon-launcher:before {
+.ax-icon-label:before {
   content: "\f144";
 }
-.ax-icon-lock:before {
+.ax-icon-launcher:before {
   content: "\f145";
 }
-.ax-icon-logout:before {
+.ax-icon-lock:before {
   content: "\f146";
 }
-.ax-icon-manage:before {
+.ax-icon-logout:before {
   content: "\f147";
 }
-.ax-icon-menu-2:before {
+.ax-icon-manage:before {
   content: "\f148";
 }
-.ax-icon-metrics:before {
+.ax-icon-menu-2:before {
   content: "\f149";
 }
-.ax-icon-more:before {
+.ax-icon-metrics:before {
   content: "\f14a";
 }
-.ax-icon-new:before {
+.ax-icon-more:before {
   content: "\f14b";
 }
-.ax-icon-nonmarkingreturn:before {
+.ax-icon-new:before {
   content: "\f14c";
 }
-.ax-icon-notification:before {
+.ax-icon-nonmarkingreturn:before {
   content: "\f14d";
 }
-.ax-icon-pencil:before {
+.ax-icon-notification:before {
   content: "\f14e";
 }
-.ax-icon-play-2:before {
+.ax-icon-pencil:before {
   content: "\f14f";
 }
-.ax-icon-play:before {
+.ax-icon-play-2:before {
   content: "\f150";
 }
-.ax-icon-pod:before {
+.ax-icon-play:before {
   content: "\f151";
 }
-.ax-icon-policies:before {
+.ax-icon-pod:before {
   content: "\f152";
 }
-.ax-icon-policy:before {
+.ax-icon-policies:before {
   content: "\f153";
 }
-.ax-icon-profile:before {
+.ax-icon-policy:before {
   content: "\f154";
 }
-.ax-icon-push:before {
+.ax-icon-profile:before {
   content: "\f155";
 }
-.ax-icon-report-card:before {
+.ax-icon-push:before {
   content: "\f156";
 }
-.ax-icon-resubmit-failed:before {
+.ax-icon-report-card:before {
   content: "\f157";
 }
-.ax-icon-retry:before {
+.ax-icon-resubmit-failed:before {
   content: "\f158";
 }
-.ax-icon-right-navigation-toolbar:before {
+.ax-icon-retry:before {
   content: "\f159";
 }
-.ax-icon-safe:before {
+.ax-icon-right-navigation-toolbar:before {
   content: "\f15a";
 }
-.ax-icon-sales-channels:before {
+.ax-icon-safe:before {
   content: "\f15b";
 }
-.ax-icon-sample:before {
+.ax-icon-sales-channels:before {
   content: "\f15c";
 }
-.ax-icon-scale:before {
+.ax-icon-sample:before {
   content: "\f15d";
 }
-.ax-icon-search:before {
+.ax-icon-scale:before {
   content: "\f15e";
 }
-.ax-icon-settings:before {
+.ax-icon-search:before {
   content: "\f15f";
 }
-.ax-icon-slack-02:before {
+.ax-icon-settings:before {
   content: "\f160";
 }
-.ax-icon-stop-property:before {
+.ax-icon-slack-02:before {
   content: "\f161";
 }
-.ax-icon-stop:before {
+.ax-icon-stop-property:before {
   content: "\f162";
 }
-.ax-icon-storageclass:before {
+.ax-icon-stop:before {
   content: "\f163";
 }
-.ax-icon-storageprovider:before {
+.ax-icon-storageclass:before {
   content: "\f164";
 }
-.ax-icon-tag:before {
+.ax-icon-storageprovider:before {
   content: "\f165";
 }
-.ax-icon-template:before {
+.ax-icon-tag:before {
   content: "\f166";
 }
-.ax-icon-terminate:before {
+.ax-icon-template:before {
   content: "\f167";
 }
-.ax-icon-test:before {
+.ax-icon-terminate:before {
   content: "\f168";
 }
-.ax-icon-timeline:before {
+.ax-icon-test:before {
   content: "\f169";
 }
-.ax-icon-tools:before {
+.ax-icon-timeline:before {
   content: "\f16a";
 }
-.ax-icon-user-groups:before {
+.ax-icon-tools:before {
   content: "\f16b";
 }
-.ax-icon-user-profile:before {
+.ax-icon-user-groups:before {
   content: "\f16c";
 }
-.ax-icon-user:before {
+.ax-icon-user-profile:before {
   content: "\f16d";
 }
-.ax-icon-users:before {
+.ax-icon-user:before {
   content: "\f16e";
 }
-.ax-icon-volume:before {
+.ax-icon-users:before {
   content: "\f16f";
 }
-.ax-icon-workflow:before {
+.ax-icon-volume:before {
   content: "\f170";
 }
-.ax-icon-yaml:before {
+.ax-icon-workflow:before {
   content: "\f171";
+}
+.ax-icon-yaml:before {
+  content: "\f172";
 }
