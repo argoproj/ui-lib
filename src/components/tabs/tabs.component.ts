@@ -40,7 +40,7 @@ export class TabsComponent implements OnChanges {
     }
 
     public selectTab(event, tab: Tab) {
-        this.indicatorPosition = this.getIndicatorPosition(event.toElement.offsetParent, event.toElement);
+        this.indicatorPosition = this.getIndicatorPosition(event.target.offsetParent, event.target);
         this.selectedTabKey = tab.tabKey;
         this.selected.emit({selectedTab: tab});
     }
