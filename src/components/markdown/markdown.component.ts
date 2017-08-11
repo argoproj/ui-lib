@@ -17,9 +17,7 @@ export class MarkdownComponent {
 
     @Input()
     public set markdown(value: string) {
-        // this is a temporary fix to remove the video from the markdown
-        let noIFrameVal = value.split('<iframe')[0];
-        this.html = this.sanitized.bypassSecurityTrustHtml(marked(noIFrameVal));
+        this.html = this.sanitized.bypassSecurityTrustHtml(marked(value));
     }
 
     constructor(private sanitized: DomSanitizer) {}
