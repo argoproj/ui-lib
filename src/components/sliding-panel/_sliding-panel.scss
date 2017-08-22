@@ -39,7 +39,7 @@ $sliding-panel-middle-width: 600px;
         display: block;
         position: absolute;
         cursor: pointer;
-        top: 12px;
+        top: 10px;
         right: 40px;
         z-index: 1;
         border-radius: 50%;
@@ -122,6 +122,8 @@ $sliding-panel-middle-width: 600px;
         color: $ax-color-gray-5;
         background-color: $ax-color-gray-2;
         border-bottom: 1px solid #c6cfd1;
+        font-weight: 500;
+        font-size: .925em;
 
         .sliding-panel--off-canvas & {
             background-color: $ax-color-gray-2;
