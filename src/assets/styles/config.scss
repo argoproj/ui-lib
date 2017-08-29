@@ -11,9 +11,9 @@ $body-font-family: 'Heebo', sans-serif !default;
 $fa-font-path: 'assets/font-awesome/fonts' !default;
 
 // Other
-$top-bar-height: 80px;
-$notifications-height: 80px;
-$notifications-z-index: 8;
+$top-bar-height: 50px;
+$notifications-height: $top-bar-height;
+$notifications-z-index: 11;
 $sliding-panel-z-index: 20;
 $sliding-panel-offcanvas-width: 500px;
 $basePageWidth: 1024px;
