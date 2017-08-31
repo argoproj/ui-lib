@@ -1,5 +1,5 @@
 <div class="tabs">
-    <div class="tabs__nav" [class.text-center]="navCenter">
+    <div class="tabs__nav" [class.text-center]="navCenter" [class.tabs__nav--additional-padding]="additionalPadding">
         <div [class.fixed-width]="fixedWidth">
             <div class="tabs__nav-wrapper" [class.text-center]="navCenter">
                 <a *ngFor="let tab of tabs" (click)="selectTab($event, tab)" [ngClass]="{'active': tab.selected}">

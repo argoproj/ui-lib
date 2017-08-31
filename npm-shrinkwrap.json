@@ -1,6 +1,6 @@
 {
   "name": "argo-ui-lib",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "dependencies": {
     "@angular/common": {
       "version": "2.4.9",
