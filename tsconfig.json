@@ -9,7 +9,6 @@
     "noImplicitAny": false,
     "types": [
         "clipboard",
-        "d3",
         "es6-shim",
         "jquery",
         "lodash",
