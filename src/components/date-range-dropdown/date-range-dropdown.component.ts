@@ -40,7 +40,10 @@ export class DateRangeDropDownComponent implements AfterContentInit {
     }
 
     public cancelDateRangeSelection() {
-        this.showCustomRange = false;
+        this.dropDown.close();
+        setTimeout(() => {
+            this.showCustomRange = false;
+        }, 500);
     }
 
     public get ranges(): any[] {
@@ -80,10 +83,11 @@ export class DateRangeDropDownComponent implements AfterContentInit {
     }
 
     public selectCustomRange() {
+        this.dropDown.close();
         setTimeout(() => {
             this.showCustomRange = true;
-            this.dropDown.open();
-        }, 0);
+            setTimeout(() => this.dropDown.open());
+        }, 500);
     }
 
     public changeRange(range: { numberOfDays: number, endDate: moment.Moment }) {
