@@ -47,7 +47,7 @@
 
     <div class="columns small-3">
         <h5>Date Range Dropdown:</h5>
-        <ax-date-range-dropdown [range]="dateRangeInput"></ax-date-range-dropdown>
+        <ax-date-range-dropdown [range]="dateRangeInput" (rangeChanged)="onApplyDate($event)"></ax-date-range-dropdown>
     </div>
 </div>
 

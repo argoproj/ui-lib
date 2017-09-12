@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { DateRange, NotificationsService, DropdownMenuSettings, FilterMultiSelect } from '../../components';
-import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'ax-example-controls',
@@ -47,5 +47,9 @@ export class ExampleControlsComponent {
 
     public onEventTypeChange(e) {
         this.filterMultiSelectOne = e;
+    }
+
+    public onApplyDate(value: DateRange) {
+        this.dateRangeInput = value;
     }
 }
