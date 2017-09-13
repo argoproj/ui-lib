@@ -67,16 +67,15 @@ export class DateRangeSelectorComponent {
             return;
         }
 
-        if (this.target === 'start') {
+        let daysDiff = this.dateRange.startDate.diff(day.date, 'day');
+
+        if (this.target === 'start' || daysDiff > 0) {
             this.dateRange.durationDays = 1;
             this.dateRange.endDate = day.date.clone().endOf('day');
             this.selectTarget('end');
         } else {
-            let daysDiff = this.dateRange.startDate.diff(day.date, 'day');
-            if (daysDiff < 0) {
-                this.dateRange.durationDays = Math.min(this.maxNumberOfDays, Math.abs(daysDiff) + 1);
-                this.dateRange.endDate = day.date.clone().endOf('day');
-            }
+            this.dateRange.durationDays = Math.min(this.maxNumberOfDays, Math.abs(daysDiff) + 1);
+            this.dateRange.endDate = day.date.clone().endOf('day');
         }
 
         this.generateMonths();
