@@ -1,5 +1,7 @@
 import * as moment from 'moment';
 
+const DATE_FORMAT = 'MMM D, YYYY';
+
 export class DateRange {
     public static fromRouteParams(params, defaultDays?: number): DateRange {
         let days = params['days'] ? parseInt(params['days'], 10) : defaultDays || 1;
@@ -20,6 +22,14 @@ export class DateRange {
 
     get startDate() {
         return this.endDate.clone().startOf('day').subtract(this.durationDays - 1, 'days');
+    }
+
+    get startDateFormat() {
+        return this.startDate.format(DATE_FORMAT);
+    }
+
+    get endDateFormat() {
+        return this.endDate.format(DATE_FORMAT);
     }
 
     get isAllDates(): boolean {

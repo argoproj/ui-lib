@@ -1,5 +1,33 @@
+@import '../../assets/styles/config';
+
 .date-range-dropdown {
     &__date {
         width: 600px;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    &__ranges {
+        min-width: 200px;
+        margin: -.5rem -1rem;
+    }
+
+    &__range {
+        display: block;
+        padding: 10px 16px;
+        font-size: .9em;
+        color: $ax-color-gray-6;
+
+        &:hover {
+            color: $ax-color-gray-6;
+            background-color: $ax-color-gray-2;
+        }
+
+        &.active,
+        &.active:hover {
+            background-color: $ax-color-gray-1;
+        }
     }
 }

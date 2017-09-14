@@ -1,47 +1,65 @@
 <div class="date-range-selector">
     <div class="date-range-selector__header">
-        <div class="row">
-            <div class="columns small-4">
-                <div class="date-range-selector__header-range">{{ dateRange.format() }}</div>
-            </div>
-            <div class="columns small-8 text-center">
-                <button class="date-range-selector__month-btn" (click)="changeSelectedMonth(-1)">
-                    <i class="fa fa-angle-left" aria-hidden="true"></i></button>
-                <div class="date-range-selector__month-title">{{monthTitle}}</div>
-                <button class="date-range-selector__month-btn" (click)="changeSelectedMonth(1)">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i></button>
-            </div>
+        <div class="date-range-selector__date-range" [class.active]="target === 'start'" (click)="selectTarget('start')">
+            From: {{ dateRange.startDateFormat }}
+        </div>
+        <div class="date-range-selector__date-range" [class.active]="target === 'end'" (click)="selectTarget('end')">
+            To: <template [ngIf]="dateRange.durationDays > 1">{{ dateRange.endDateFormat }}</template>
         </div>
     </div>
     <div class="date-range-selector__body">
-        <div class="row">
-            <div class="columns small-4 date-range-selector__ranges">
-                <div class="date-range-selector__range" *ngFor="let range of ranges; trackBy:trackByTitle">
-                    <a class="date-range-selector__btn" (click)="changeRange(range)"
-                       [ngClass]="{'active': isRangeSelected(range)}">{{range.title}}</a>
-                </div>
-                <div class="date-range-selector__range">
-                    <a class="date-range-selector__btn" (click)="selectCustomRange()" [ngClass]="{'active': isCustomRangeSelected()}">Custom</a>
+        <div class="date-range-selector__first-month">
+            <div class="date-range-selector__month-title">
+                <button class="date-range-selector__month-btn date-range-selector__month-btn--left" (click)="changeSelectedMonth(-1)">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                </button>
+                {{ firstMonth.title }}
+            </div>
+            <div class="date-range-selector__row">
+                <div *ngFor="let dayName of weekDayNames; let last = last; let first = first;"
+                     class="date-range-selector__columns date-range-selector__day-name" [ngClass]="{'end': last}">{{ dayName }}</div>
+            </div>
+            <div class="date-range-selector__row" *ngFor="let week of firstMonth.data; trackBy:trackByFirstDayUnixTime">
+                <div *ngFor="let day of week; let last = last; let first = first; trackBy:trackByDayUnixTime"
+                     class="date-range-selector__columns date-range-selector__cell" (click)="selectDate(day)"
+                     [ngClass]="{
+                    'end': last,
+                    'date-range-selector__cell--muted': !day.currentMonth,
+                    'date-range-selector__cell--selected': day.selected,
+                    'date-range-selector__cell--first-selected': day.firstSelected,
+                    'date-range-selector__cell--last-selected': day.lastSelected}"
+                     [attr.data-date]="day.date.unix()">
+                    <div class="date-range-selector__day"
+                         (mousedown)="day.firstSelected && startDragging('start') || day.lastSelected && startDragging('end')">
+                        {{ day.number }}
+                    </div>
                 </div>
             </div>
-            <div class="columns small-8 date-range-selector__calendar">
-                <div class="row">
-                    <div *ngFor="let dayName of weekDayNames; let last = last; let first = first;"
-                        class="columns date-range-selector__day-name" [ngClass]="{'end': last}">{{ dayName }}</div>
-                </div>
-                <div class="row" *ngFor="let week of weeks; trackBy:trackByFirstDayUnixTime">
-                    <div *ngFor="let day of week; let last = last; let first = first; trackBy:trackByDayUnixTime"
-                        class="columns date-range-selector__cell" (click)="changeIntervalEnd(day.date)"
-                        [ngClass]="{
-                            'end': last,
-                            'date-range-selector__cell--muted': !day.currentMonth,
-                            'date-range-selector__cell--selected': day.selected,
-                            'date-range-selector__cell--first-selected': day.firstSelected,
-                            'date-range-selector__cell--last-selected': day.lastSelected}"
-                        [attr.data-date]="day.date.unix()">
-                        <div class="date-range-selector__day"
-                             (mousedown)="day.firstSelected && startDragging('start') || day.lastSelected && startDragging('end')">
-                            {{ day.number }}</div>
+        </div>
+        <div class="date-range-selector__second-month">
+            <div class="date-range-selector__month-title">
+                <button class="date-range-selector__month-btn date-range-selector__month-btn--right" (click)="changeSelectedMonth(1)">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </button>
+                {{ secondMonth.title }}
+            </div>
+            <div class="date-range-selector__row">
+                <div *ngFor="let dayName of weekDayNames; let last = last; let first = first;"
+                     class="date-range-selector__columns date-range-selector__day-name" [ngClass]="{'end': last}">{{ dayName }}</div>
+            </div>
+            <div class="date-range-selector__row" *ngFor="let week of secondMonth.data; trackBy:trackByFirstDayUnixTime">
+                <div *ngFor="let day of week; let last = last; let first = first; trackBy:trackByDayUnixTime"
+                     class="date-range-selector__columns date-range-selector__cell" (click)="selectDate(day)"
+                     [ngClass]="{
+                    'end': last,
+                    'date-range-selector__cell--muted': !day.currentMonth,
+                    'date-range-selector__cell--selected': day.selected,
+                    'date-range-selector__cell--first-selected': day.firstSelected,
+                    'date-range-selector__cell--last-selected': day.lastSelected}"
+                     [attr.data-date]="day.date.unix()">
+                    <div class="date-range-selector__day"
+                         (mousedown)="day.firstSelected && startDragging('start') || day.lastSelected && startDragging('end')">
+                        {{ day.number }}
                     </div>
                 </div>
             </div>

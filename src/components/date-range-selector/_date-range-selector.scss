@@ -3,14 +3,73 @@
 .date-range-selector {
     user-select: none;
     font-weight: normal;
-    margin-bottom: 4px;
-    width: 600px;
 
     &__header {
+        overflow: hidden;
         margin: -1rem -1rem 0;
-        padding: 20px;
         background-color: $ax-color-gray-2;
         border-bottom: 1px solid $ax-color-gray-4;
+    }
+
+    &__date-range {
+        float: left;
+        width: 50%;
+        padding: 20px 20px 16px;
+        font-weight: 500;
+        font-size: .9em;
+        text-align: center;
+        text-transform: uppercase;
+        color: $ax-color-teal-7;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+
+        &.active {
+            background-color: rgba($ax-color-cyan, .1);
+            border-bottom-color: $ax-color-teal-5;
+        }
+    }
+
+    &__body {
+        overflow: hidden;
+        margin: 0 -1rem;
+        padding: 20px;
+    }
+
+    &__first-month,
+    &__second-month {
+        float: left;
+        width: 50%;
+    }
+
+    &__first-month {
+        padding-right: 20px;
+        border-right: 1px solid $ax-color-gray-3;
+    }
+
+    &__second-month {
+        padding-left: 20px;
+    }
+
+    &__month-title {
+        padding: 0 10px 20px;
+        font-size: .9em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__month-btn {
+        padding: 0 4px;
+        font-size: 1.4em;
+        color: $ax-color-teal-6;
+        cursor: pointer;
+
+        &--left {
+            float: left;
+        }
+
+        &--right {
+            float: right;
+        }
     }
 
     &__footer {
@@ -20,51 +79,13 @@
         border-top: 1px solid $ax-color-gray-4;
     }
 
-    &__body {
-        margin: 0 -1rem;
-        padding: 20px 0;
+    &__row {
+        display: flex;
+        flex-flow: row wrap;
     }
 
-    &__header-range {
-        font-weight: 500;
-        font-size: 13px;
-        color: $ax-color-gray-6;
-    }
-
-    &__month-btn {
-        padding: 0 20px;
-        font-size: 20px;
-        color: $ax-color-teal-6;
-    }
-
-    &__month-title {
-        display: inline-block;
-        width: 140px;
-        color: $ax-color-gray-7;
-    }
-
-    &__ranges {
-        border-right: 1px solid $ax-color-gray-3;
-    }
-
-    &__btn {
-        display: block;
-        margin-bottom: 4px;
-        padding: 6px 14px;
-        font-weight: 500;
-        font-size: 13px;
-        color: $ax-color-teal-6;
-        text-transform: uppercase;
-        border-radius: 20px;
-
-        &.active {
-            color: $ax-color-gray-8;
-            background-color: $ax-color-teal-2;
-        }
-    }
-
-    &__calendar {
-        padding: 0 40px;
+    &__columns {
+        flex: 1 1 0px;
     }
 
     &__day-name {
@@ -97,6 +118,8 @@
 
         &--muted {
             color: #E1E1E1;
+            cursor: default;
+            opacity: 0;
         }
 
         &--selected {

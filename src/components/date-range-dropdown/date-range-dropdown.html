@@ -1,13 +1,23 @@
 <ax-dropdown #dropdown class="date-range-dropdown">
-    <ax-dropdown-anchor>
-        <i class="ax-icon-calendar" aria-hidden="true"></i>
-        <span>{{range.format()}}</span>
-        <i class="fa fa-caret-down" aria-hidden="true"></i>
+    <ax-dropdown-anchor (click)="onOpen()">
+        <template [ngIf]="!hasContent">
+            <i class="ax-icon-calendar" aria-hidden="true"></i>
+            <span>{{range.format()}}</span>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </template>
+        <div #content [hidden]="!hasContent">
+            <ng-content></ng-content>
+        </div>
     </ax-dropdown-anchor>
     <ax-dropdown-content>
-        <div class="date-range-dropdown__date">
+        <div *ngIf="!showCustomRange" class="date-range-dropdown__ranges">
+            <a class="date-range-dropdown__range" *ngFor="let range of ranges; trackBy:trackByTitle"
+               (click)="changeRange(range)" [ngClass]="{'active': isRangeSelected(range)}">{{ range.title }}</a>
+            <a class="date-range-dropdown__range" (click)="selectCustomRange()" [ngClass]="{'active': isCustomRangeSelected()}">Custom</a>
+        </div>
+        <div class="date-range-dropdown__date" [class.hidden]="!showCustomRange">
             <div>
-                <ax-date-range-selector [input]="range" [isUpdateNeeded]="dropdown.opened"></ax-date-range-selector>
+                <ax-date-range-selector [input]="range"></ax-date-range-selector>
             </div>
             <div class="date-range-selector__footer">
                 <div class="row">
