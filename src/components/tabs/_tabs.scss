@@ -41,6 +41,20 @@
                 color: #aaa;
             }
         }
+
+        &.transparent {
+            background-color: transparent;
+            box-shadow: none;
+            border-bottom: 1px solid $ax-color-gray-4;
+
+            a {
+                color: $ax-color-teal-5;
+
+                &.active {
+                    color: $ax-color-gray-8;
+                }
+            }
+        }
     }
 
     &__nav-wrapper {
