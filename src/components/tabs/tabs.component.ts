@@ -14,6 +14,7 @@ export class TabsComponent implements OnChanges {
     @Input() public selectedTabKey: string;
     @Input() public navCenter: boolean = false;
     @Input() public fixedWidth: boolean;
+    @Input() public transparent: boolean = false;
 
     constructor(private myElement: ElementRef) {
     }
