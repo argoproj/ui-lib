@@ -1,6 +1,8 @@
 import { Directive, ElementRef, Input, Output, HostListener, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import { Scroller } from './scroller';
 
+import * as $ from 'jquery';
+
 @Directive({
     selector: '[ax-infinite-scroll]',
 })

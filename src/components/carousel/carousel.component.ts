@@ -1,4 +1,5 @@
 import 'owl.carousel';
+import * as $ from 'jquery';
 import {
     Component,
     Input,

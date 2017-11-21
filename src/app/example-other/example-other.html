@@ -5,11 +5,11 @@
 <h3>Carousel</h3>
 <div>
     <ax-carousel [items]="carouselImages" [options]="{items: 5, loop: false}">
-        <template let-item>
+        <ng-template let-item>
             <div [style.width]="'100px'" [style.height]="'100px'" >
                 <img [src]="item">
             </div>
-        </template>
+        </ng-template>
     </ax-carousel>
 </div>
 <h3>Markdown</h3>

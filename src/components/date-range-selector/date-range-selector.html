@@ -4,7 +4,7 @@
             From: {{ dateRange.startDateFormat }}
         </div>
         <div class="date-range-selector__date-range" [class.active]="target === 'end'" (click)="selectTarget('end')">
-            To: <template [ngIf]="dateRange.durationDays > 1">{{ dateRange.endDateFormat }}</template>
+            To: <ng-template [ngIf]="dateRange.durationDays > 1">{{ dateRange.endDateFormat }}</ng-template>
         </div>
     </div>
     <div class="date-range-selector__body">
