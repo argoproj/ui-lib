@@ -1,0 +1,9 @@
+/.git
+/node_modules
+/src/app
+/src/index.html
+
+.npmignore
+npm-shrinkwrap.json 
+
+**/*spec.ts
