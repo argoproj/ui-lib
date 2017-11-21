@@ -1,9 +1,11 @@
+$axFontsDirectorPath: '../../assets/fonts' !default;
+
 @font-face {
     font-family: "ax-icon-v1";
-    src: url("../../assets/fonts/ax-icon-v1.eot?f2f664bd3fd2c9a7778e9322fb53c291?#iefix") format("embedded-opentype"),
-      url("../../assets/fonts/ax-icon-v1.woff?f2f664bd3fd2c9a7778e9322fb53c291") format("woff"),
-      url("../../assets/fonts/ax-icon-v1.ttf?f2f664bd3fd2c9a7778e9322fb53c291") format("truetype"),
-      url("../../assets/fonts/ax-icon-v1.svg?f2f664bd3fd2c9a7778e9322fb53c291#ax-icon-v1") format("svg");
+    src: url($axFontsDirectorPath + "/ax-icon-v1.eot?f2f664bd3fd2c9a7778e9322fb53c291?#iefix") format("embedded-opentype"),
+      url($axFontsDirectorPath + "/ax-icon-v1.woff?f2f664bd3fd2c9a7778e9322fb53c291") format("woff"),
+      url($axFontsDirectorPath + "/ax-icon-v1.ttf?f2f664bd3fd2c9a7778e9322fb53c291") format("truetype"),
+      url($axFontsDirectorPath + "/ax-icon-v1.svg?f2f664bd3fd2c9a7778e9322fb53c291#ax-icon-v1") format("svg");
 }
 
 i {
