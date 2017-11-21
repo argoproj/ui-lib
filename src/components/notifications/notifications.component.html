@@ -1,5 +1,5 @@
 <div class="ax-notifications-list" [style.left]="leftOffset + 'px'">
-    <template ngFor let-notification [ngForOf]="notifications" let-i="index">
+    <ng-template ngFor let-notification [ngForOf]="notifications" let-i="index">
         <div class="ax-notification" *ngIf="notification !== undefined"
              [class.success]="notification.type === notificationTypes.Success"
              [class.warning]="notification.type === notificationTypes.Warning"
@@ -11,5 +11,5 @@
             </div>
             <div class="ax-notification__close" (click)="close(i)">x</div>
         </div>
-    </template>
+    </ng-template>
 </div>

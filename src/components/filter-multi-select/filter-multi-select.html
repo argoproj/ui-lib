@@ -1,6 +1,6 @@
 <div class="filter-multi-select" [ngClass]="{disabled: isDisabled, 'bright': brightStyle}" [ngStyle]="{width: width + 'px'}">
     <div class="filter-multi-select__title" (click)="onToggleDropdown()">
-        {{ texts?.name }}<i class="ax-icon-expand-arrow" [hidden]="isActive"></i><i class="ax-icon-collapse-arrow" [hidden]="!isActive"></i><span class="filter-multi-select__inline-results" *ngIf="isDisplayedInline"><template ngFor let-item let-isLast="last" let-isFirst="first" [ngForOf]="selectedItems">{{ isFirst ? ': ' : ''}}{{ item[0].toUpperCase() + item.slice(1) }}{{ isLast ? '.' : ', ' }}</template></span>
+        {{ texts?.name }}<i class="ax-icon-expand-arrow" [hidden]="isActive"></i><i class="ax-icon-collapse-arrow" [hidden]="!isActive"></i><span class="filter-multi-select__inline-results" *ngIf="isDisplayedInline"><ng-template ngFor let-item let-isLast="last" let-isFirst="first" [ngForOf]="selectedItems">{{ isFirst ? ': ' : ''}}{{ item[0].toUpperCase() + item.slice(1) }}{{ isLast ? '.' : ', ' }}</ng-template></span>
     </div>
     <div class="filter-multi-select__content" [hidden]="!isActive">
         <div class="filter-multi-select__input" [hidden]="isStaticList">

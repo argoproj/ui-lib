@@ -4,4 +4,6 @@
 /src/index.html
 
 .npmignore
-npm-shrinkwrap.json
+npm-shrinkwrap.json 
+
+/e2e
