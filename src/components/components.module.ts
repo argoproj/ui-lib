@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { DropDownComponent, DropdownAnchorDirective, DropdownContentDirective } from './dropdown/dropdown.component';
 import { DropDownMenuComponent } from './dropdown-menu/dropdown-menu.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { CopyButtonDirective } from './copy-btn/copy.directive';
 import { DateRangeSelectorComponent } from './date-range-selector/date-range-selector.component';
 import { DateRangeDropDownComponent } from './date-range-dropdown/date-range-dropdown.component';
@@ -43,7 +42,6 @@ let components = [
     DropDownMenuComponent,
     DropdownAnchorDirective,
     DropdownContentDirective,
-    CarouselComponent,
     CopyButtonDirective,
     DateRangeSelectorComponent,
     DateRangeDropDownComponent,

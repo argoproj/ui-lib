@@ -1,8 +1,6 @@
 import {Directive, HostListener, ComponentRef, ViewContainerRef, ComponentFactoryResolver, Input} from '@angular/core';
 import {TooltipContentComponent} from './tooltip-content.component';
 
-import * as $ from 'jquery';
-
 @Directive({
     selector: '[ax-tooltip]',
 })
