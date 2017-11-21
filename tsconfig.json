@@ -7,9 +7,9 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
+    "lib" : ["es2015", "es2015.iterable", "dom"],
     "types": [
         "clipboard",
-        "es6-shim",
         "jquery",
         "lodash",
         "moment",
