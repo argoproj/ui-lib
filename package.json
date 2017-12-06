@@ -27,7 +27,7 @@
     "marked": "^0.3.6",
     "moment": "^2.19.2",
     "rxjs": "^5.5.2",
-    "xterm": "^2.9.2",
+    "xterm": "^2.4.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
